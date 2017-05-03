@@ -3,12 +3,16 @@
 
     <string name="Test_Data">测试数据</string>
     <string name="Login">登录</string>
-    <string name="Phone_Num_Register">手机号注册</string>
-    <string name="Forget_Password">忘记密码</string>
+    <string name="Phone_Num_Register">手机号注册页面</string>
+    <string name="Forget_Password">忘记密码?</string>
     <string name="Use_Third_Login">使用以下账号登录</string>
     <string name="Get_Phone_Sms">获取验证码</string>
     <string name="Go_to_Register">去登陆</string>
     <string name="Register_Password">设置密码</string>
+    <string name="Phone_Num_Login">手机号登录页面</string>
+    <string name="Write_Phone">请输入手机号</string>
+    <string name="Password">密码</string>
+    <string name="queren">确认</string>
 
 
 </resources>
