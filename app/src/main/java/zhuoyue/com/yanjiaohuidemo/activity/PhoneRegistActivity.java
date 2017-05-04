@@ -17,6 +17,7 @@ import zhuoyue.com.yanjiaohuidemo.entity.SmsCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.util.MD5util;
 import zhuoyue.com.yanjiaohuidemo.util.MyCountDownTimer;
 import zhuoyue.com.yanjiaohuidemo.util.MyLog;
+import zhuoyue.com.yanjiaohuidemo.util.MyToast;
 import zhuoyue.com.yanjiaohuidemo.util.NetWorkApi;
 
 public class PhoneRegistActivity extends AppCompatActivity {
@@ -31,7 +32,6 @@ public class PhoneRegistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_phone_regist);
 
         initView();
-
         mMyCountDownTimer = new MyCountDownTimer(6000, 10, mGet_Num);
 
         //获取验证码的点击事件
@@ -46,9 +46,12 @@ public class PhoneRegistActivity extends AppCompatActivity {
                     public void onResponse(Call<SmsCallBackEntity> call, Response<SmsCallBackEntity> response) {
                         SmsCallBackEntity body = response.body();
                         if (body != null) {
-//                            MyLog.d("短信：back",body.getBack());
-//                            MyLog.d(body.getError());
-//                            MyLog.d("短信 info",body.getInfo());
+                            MyLog.d("短信：back",body.getBack());
+                      //      MyLog.d(body.getError());
+                       //     MyLog.d("短信 info",body.getInfo());
+                            if (body.getBack().equals("true")){
+                                MyToast.showShort(PhoneRegistActivity.this,"验证码发送成功，请注意查收");
+                            }
 
                         }else {
                             Toast.makeText(PhoneRegistActivity.this, "body null", Toast.LENGTH_SHORT).show();
@@ -79,25 +82,27 @@ public class PhoneRegistActivity extends AppCompatActivity {
 
                              RegisterCallBackEntity body = response.body();
                              if (body != null) {
-                                 MyLog.d("注册back:",body.getBack());
+
+                                 MyLog.d("注册 back:",body.getBack());
 //                                 MyLog.d(body.getError());
-                                 MyLog.d("注册info:",body.getInfo());
+                                 MyLog.d("注册 info:",body.getInfo());
 
                              }else {
+
                                  Toast.makeText(PhoneRegistActivity.this, "body null", Toast.LENGTH_SHORT).show();
+
                              }
                          }
-
                          @Override
                          public void onFailure(Call<RegisterCallBackEntity> call, Throwable t) {
+
                              MyLog.d("flag error","error:"+t.getMessage());
+
                          }
                      }
              );
-
             }
         });
-
     }
 
     private String Md5HandleData(String string) {
@@ -114,7 +119,6 @@ public class PhoneRegistActivity extends AppCompatActivity {
         mRegister_Pwd = (EditText) findViewById(R.id.register_pwd);
         mGet_Num = (Button) findViewById(R.id.register_get_num);
         mOk = (Button) findViewById(R.id.register_ok);
-
 
     }
 

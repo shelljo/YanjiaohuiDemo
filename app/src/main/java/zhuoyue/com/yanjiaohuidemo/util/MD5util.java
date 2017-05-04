@@ -38,4 +38,12 @@ public class MD5util {
             return null;
         }
     }
+
+    public String Md5Handle(String string){
+        String encrypt = MD5util.encrypt(string);
+        String s = encrypt + "yanjiaohui".toString();
+        String encrypt1 = MD5util.encrypt(s);
+        return encrypt1;
+    }
+
 }

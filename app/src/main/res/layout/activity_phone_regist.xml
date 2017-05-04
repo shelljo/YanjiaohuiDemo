@@ -90,6 +90,7 @@
     </LinearLayout>
 
     <EditText
+        android:password="true"
         android:id="@+id/register_pwd"
         android:layout_width="match_parent"
         android:layout_height="60dp"
