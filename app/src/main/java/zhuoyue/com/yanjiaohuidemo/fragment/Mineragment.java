@@ -51,7 +51,6 @@ public class Mineragment extends Fragment {
         mLin_Head_bg.setBackground(new BitmapDrawable(target));
 
 
-
         return view;
     }
 
