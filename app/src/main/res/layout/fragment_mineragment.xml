@@ -15,10 +15,10 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:id="@+id/mine_head_bg"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:background="@color/colorAccent"
             android:orientation="horizontal">
 
             <RelativeLayout
@@ -36,6 +36,7 @@
                     />
 
                 <ImageView
+                    android:id="@+id/mine_setting"
                     android:padding="10dp"
                     android:src="@drawable/setting"
                     android:layout_width="wrap_content"

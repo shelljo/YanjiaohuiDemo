@@ -1,6 +1,7 @@
 package zhuoyue.com.yanjiaohuidemo.fragment;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -13,20 +14,25 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridLayout;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import zhuoyue.com.yanjiaohuidemo.R;
+import zhuoyue.com.yanjiaohuidemo.activity.SettingActivity;
 import zhuoyue.com.yanjiaohuidemo.adapter.GridAdapter;
+import zhuoyue.com.yanjiaohuidemo.util.MyToast;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MineFragment extends Fragment {
+public class MineFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
     private LinearLayout mLin_Head_bg;
     private GridView mGridView;
     private GridAdapter mGridAdapter;
+    private ImageView mSetting,mMsm;
 
     private String mTitle[]=new String[]{"待评价","待付款","收藏","评价","余额","我的订单","抵用券","积分商城","会员中心","我的钱包"};
 
@@ -54,10 +60,12 @@ public class MineFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mineragment, container, false);
         //findview_By_Id
-        mLin_Head_bg = (LinearLayout) view.findViewById(R.id.mine_head_bg);
-        mGridView = (GridView) view.findViewById(R.id.mine_grid);
+
+        initView(view);
+
         mGridAdapter = new GridAdapter(getContext(), mTitle, mImage);
         mGridView.setAdapter(mGridAdapter);
+        mGridView.setOnItemClickListener(this);
 
 
         //下面是高斯模糊代码，可以直接用。
@@ -73,10 +81,66 @@ public class MineFragment extends Fragment {
         out.copyTo(target);
         mLin_Head_bg.setBackground(new BitmapDrawable(target));
 
+        //设置的点击事件
+        mSetting.setOnClickListener(this);
+
 
         return view;
     }
 
+    private void initView(View view) {
+
+        mSetting = (ImageView) view.findViewById(R.id.mine_setting);
+        mMsm = (ImageView) view.findViewById(R.id.mine_sms);
+        mLin_Head_bg = (LinearLayout) view.findViewById(R.id.mine_head_bg);
+        mGridView = (GridView) view.findViewById(R.id.mine_grid);
+
+    }
 
 
+    //GridView点击事件
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (position) {
+            case 0:
+                MyToast.showShort(getContext(),"点击了第"+position+"条数据");
+                break;
+            case 1:
+                MyToast.showShort(getContext(),"点击了第"+position+"条数据");
+                break;
+            case 2:
+                MyToast.showShort(getContext(),"点击了第"+position+"条数据");
+                break;
+            case 3:
+                MyToast.showShort(getContext(),"点击了第"+position+"条数据");
+                break;
+            case 4:
+                MyToast.showShort(getContext(),"点击了第"+position+"条数据");
+                break;
+            case 5:
+                MyToast.showShort(getContext(),"点击了第"+position+"条数据");
+                break;
+            case 6:
+                MyToast.showShort(getContext(),"点击了第"+position+"条数据");
+                break;
+            case 7:
+                MyToast.showShort(getContext(),"点击了第"+position+"条数据");
+                break;
+            case 8:
+                MyToast.showShort(getContext(),"点击了第"+position+"条数据");
+                break;
+            case 9:
+                MyToast.showShort(getContext(),"点击了第"+position+"条数据");
+                break;
+
+        }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        startActivity(new Intent(getContext(), SettingActivity.class));
+
+    }
 }
