@@ -3,7 +3,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            tools:context="zhuoyue.com.yanjiaohuidemo.fragment.Mineragment">
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@color/colorLightGray"
+            tools:context="zhuoyue.com.yanjiaohuidemo.fragment.MineFragment">
 
 
     <LinearLayout
@@ -75,32 +78,73 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp">
 
-            <GridLayout
+            <GridView
+                android:columnWidth="80dp"
+                android:padding="10dp"
+                android:background="@color/colorWhite"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:horizontalSpacing="10dp"
+                android:verticalSpacing="20dp"
+                android:numColumns="5"
                 android:id="@+id/mine_grid"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
                 android:layout_weight="3"
                 />
 
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorWhite">
 
-
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
+        <TextView
+            android:gravity="center_vertical"
+            android:drawableLeft="@android:drawable/sym_action_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="   使用帮助"
+            />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF">
 
+        <TextView
+            android:gravity="center_vertical"
+            android:drawableLeft="@android:drawable/sym_action_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="  反馈建议"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:drawableLeft="@android:drawable/ic_menu_compass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="  关于我们"
+            />
+       </LinearLayout>
+
+   </LinearLayout>
 
 </ScrollView>
