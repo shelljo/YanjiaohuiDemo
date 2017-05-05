@@ -7,6 +7,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import zhuoyue.com.yanjiaohuidemo.entity.HeadBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.RegisterCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.SmsCallBackEntity;
@@ -24,6 +25,7 @@ public class NetWorkApi {
     private Call<RegisterCallBackEntity>mRegisterCallBackEntityCall;
     private Call<SmsCallBackEntity>mSmsCallBackEntityCall;
     private Call<LoginCallBackEntity>mLoginCallBackEntityCall;
+    private Call<HeadBackEntity>mHeadBackEntityCall;
 
 
     public NetWorkApi() {
@@ -76,7 +78,7 @@ public class NetWorkApi {
         mLoginCallBackEntityCall.enqueue(callback);
 
     }
-
+    //监测是否注册
     public void  CheckRegister(String phone,Callback<SmsCallBackEntity>callback){
 
         mSmsCallBackEntityCall = mServer.ChechRegister(phone);
@@ -84,7 +86,18 @@ public class NetWorkApi {
 
     }
 
+    //上传头像
 
+
+    public void HeadPic(String phone,String pwd,Callback<HeadBackEntity>callback){
+        Map<String, String> map = new HashMap<>();
+        map.put("mobile", phone);
+        map.put("user_pwd", pwd);
+
+        mHeadBackEntityCall = mServer.HeadPic(map);
+        mHeadBackEntityCall.enqueue(callback);
+
+    }
 
 
 

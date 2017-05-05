@@ -23,9 +23,12 @@ public class UrlConfig {
 
     //会员登录
     public static final String NUM_LOGIN = "home/user/login";
+
     //验证手机是不是已经注册了
-    //http://47.93.112.70:8081/index.php/home/user/number_check?phone=13700343692
     public static final String IS_REGISTER ="home/user/number_check";
+
+    //上传头像
+    public static final String HEAD_PIC = "home/user/user_setavatar";
 
 
 

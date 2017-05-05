@@ -4,14 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="zhuoyue.com.yanjiaohuidemo.activity.MainActivity">
 
-    <TextView
-        android:textSize="30sp"
-        android:gravity="center"
+    <LinearLayout
+        android:id="@+id/main_lin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/Login"
-        />
+        android:layout_height="300dp">
+        <TextView
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/Login"
+            />
+
+    </LinearLayout>
+   <Button
+       android:onClick="shangchuan_click"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="点击上传头像"
+
+       />
+
 
 </LinearLayout>

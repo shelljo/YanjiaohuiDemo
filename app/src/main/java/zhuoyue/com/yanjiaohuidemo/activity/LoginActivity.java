@@ -86,7 +86,6 @@ public class LoginActivity extends BaseActivity {
     //点击登录，上交数据
             case R.id.login_login:
 
-
                 mNetWorkApi.PostLoginData(mLogin_Phone.getText().toString(), Md5Handle(mLogin_Password.getText().toString()),
                         new Callback<LoginCallBackEntity>() {
                             @Override
@@ -106,16 +105,13 @@ public class LoginActivity extends BaseActivity {
                                         }
                                     }
 
-
                                 }else {
                                     MyLog.d("flag","body null");
                                 }
                             }
-
                             @Override
                             public void onFailure(Call<LoginCallBackEntity> call, Throwable t) {
                                 MyLog.d("flag error","error :"+t.getMessage());
-
                             }
                         });
 
