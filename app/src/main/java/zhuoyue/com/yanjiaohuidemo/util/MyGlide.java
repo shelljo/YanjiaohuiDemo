@@ -13,7 +13,6 @@ import com.bumptech.glide.Glide;
  * MyGlide.load();
  */
 
-
 public class MyGlide {
 
     public static void load(Context context, String url, ImageView imageView){

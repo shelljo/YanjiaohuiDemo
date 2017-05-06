@@ -29,7 +29,8 @@ public class UrlConfig {
 
     //上传头像
     public static final String HEAD_PIC = "home/user/user_setavatar";
-
+    //验证手机号码的正则。
+    public final static String MATCH_PHONE = "^1[34578]{1}\\d{9}$";
 
 
 }

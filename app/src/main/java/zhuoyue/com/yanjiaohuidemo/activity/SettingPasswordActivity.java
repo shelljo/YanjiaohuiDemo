@@ -44,7 +44,13 @@ public class SettingPasswordActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View v) {
-
+        if (mSet_password.getTextSize()<6) {
+            MyToast.showShort(SettingPasswordActivity.this,"密码不能太短啊！");
+            return;
+        } else {
+            if(!mSet_password.getText().equals(mSet_password_again.getText())){
+                MyToast.showShort(SettingPasswordActivity.this,"两次输入的好像不一样呢！");
+            }
 
         Intent intent = getIntent();
         String mobile = intent.getStringExtra("mobile");
@@ -73,6 +79,7 @@ public class SettingPasswordActivity extends AppCompatActivity implements View.O
                                     }
                                 }
                         );
+        }
     }
     private  String Md5Handle(String string){
         String encrypt = MD5util.encrypt(string);

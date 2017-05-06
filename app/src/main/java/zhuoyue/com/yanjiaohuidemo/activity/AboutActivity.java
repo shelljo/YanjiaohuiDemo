@@ -5,12 +5,13 @@ import android.os.Bundle;
 
 import zhuoyue.com.yanjiaohuidemo.R;
 
-public class SettingActivity extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_about);
+
 
     }
 }

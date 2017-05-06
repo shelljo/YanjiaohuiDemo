@@ -3,6 +3,7 @@ package zhuoyue.com.yanjiaohuidemo.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import zhuoyue.com.yanjiaohuidemo.R;
 import zhuoyue.com.yanjiaohuidemo.entity.SmsCallBackEntity;
+import zhuoyue.com.yanjiaohuidemo.url.UrlConfig;
+import zhuoyue.com.yanjiaohuidemo.util.CheckPhoneUtil;
 import zhuoyue.com.yanjiaohuidemo.util.MD5util;
 import zhuoyue.com.yanjiaohuidemo.util.MyCountDownTimer;
 import zhuoyue.com.yanjiaohuidemo.util.MyLog;
@@ -39,16 +42,28 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-            mNetWorkApi.GetSmsNum(mForget_Phone.getText().toString(), new Callback<SmsCallBackEntity>() {
+            //首先监测手机号码输入是否正确
+                boolean matchered = CheckPhoneUtil.isMatchered(UrlConfig.MATCH_PHONE, mForget_Phone.getText().toString());
+                if(matchered==false){
+                MyToast.showShort(ForgetPasswordActivity.this,"手机号是不是输错(≧▽≦)啦啦啦");
+                }else
+                mMyCountDownTimer.start();
+                mNetWorkApi.GetSmsNum(mForget_Phone.getText().toString(), new Callback<SmsCallBackEntity>() {
                 @Override
                 public void onResponse(Call<SmsCallBackEntity> call, Response<SmsCallBackEntity> response) {
                     SmsCallBackEntity body = response.body();
                     if (body != null) {
                         if (body.getBack().equals("true")) {
                             MyToast.showShort(ForgetPasswordActivity.this,"验证码下发成功，请注意查收");
+                        }else {
+
+                            Log.d("flag++", "body:" + body.getError());
+                            Log.d("flag++", "body:" + body.getInfo());
+                            Log.d("flag++", "body:" + body.getBack());
+
                         }
                     }else {
-                        Toast.makeText(ForgetPasswordActivity.this, "手机号不正确", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ForgetPasswordActivity.this, "哎呀，出了点问题。", Toast.LENGTH_SHORT).show();
                     }
                 }
                 @Override
@@ -69,15 +84,16 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         SmsCallBackEntity body = response.body();
                         if (body != null) {
                             if (body.getBack().equals("true")) {
-
                                 Intent intent = new Intent(ForgetPasswordActivity.this,SettingPasswordActivity.class);
                                 intent.putExtra("mobile", mForget_Phone.getText().toString());
                                 intent.putExtra("num", mForget_num.getText().toString());
                                 startActivity(intent);
-
+                            }else {
+                                MyToast.showShort(ForgetPasswordActivity.this,"验证码没有错吧？");
                             }
                         }else {
-                            Toast.makeText(ForgetPasswordActivity.this, "手机号不正确", Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(ForgetPasswordActivity.this, "空包啊", Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -86,7 +102,6 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         MyLog.d("error","phone_num error:"+t.getMessage());
                     }
                 });
-
 
             }
         });
@@ -111,11 +126,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         mGoto_Login = (Button) findViewById(R.id.go_to_login);
 
     }
-    private String Md5HandleData(String string) {
-        String encrypt = MD5util.encrypt(string);
-        String s = encrypt + "yanjiaohui".toString();
-        String encrypt1 = MD5util.encrypt(s);
-        return encrypt1;
-    }
 
+    public void back_click(View view) {
+        finish();
+    }
 }

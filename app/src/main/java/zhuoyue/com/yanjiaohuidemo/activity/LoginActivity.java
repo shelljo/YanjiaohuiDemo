@@ -3,10 +3,23 @@ package zhuoyue.com.yanjiaohuidemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.sina.weibo.SinaWeibo;
+import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.wechat.friends.Wechat;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -55,23 +68,95 @@ public class LoginActivity extends BaseActivity {
     public void Sanfang_click(View view) {
         switch (view.getId()) {
             case  R.id.login_weibo:
-                MyToast.showShort(LoginActivity.this,"微博登录");
 
-            break;
+                MyToast.showShort(LoginActivity.this,"微博登录");
+                Platform weibo = ShareSDK.getPlatform(SinaWeibo.NAME);
+                weibo.setPlatformActionListener(new PlatformActionListener() {
+                    @Override
+                    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+                         Iterator iterator= hashMap.entrySet().iterator();
+                        while (iterator.hasNext()) {
+                            Map.Entry entry = (Map.Entry) iterator.next();
+                            Object key = entry.getKey();
+                            Object values = entry.getValue();
+                            MyLog.d("flag++", "key:" + key);
+                            MyLog.d("flag++", "values:" + values);
+                        }
+                    }
+                    @Override
+                    public void onError(Platform platform, int i, Throwable throwable) {
+
+                    }
+
+                    @Override
+                    public void onCancel(Platform platform, int i) {
+
+                    }
+                });
+
+
+
+                break;
 
             case  R.id.login_qq:
 
                 MyToast.showShort(LoginActivity.this,"QQ登录");
 
+                Login(new QQ(this));
                 break;
 
             case  R.id.login_weichat:
-
+                Login(new Wechat(this));
+                Login(new QQ(this));
                 MyToast.showShort(LoginActivity.this,"微信登录");
 
                 break;
 
         }
+
+    }
+
+    private void Login(Platform platform) {
+        String userId = platform.getDb().getUserId();
+//        String userIcon = platform.getDb().getUserIcon();
+//        String userName = platform.getDb().getUserName();
+        if (!TextUtils.isEmpty(userId)) {
+            MyToast.showShort(LoginActivity.this,"成功登陆");
+        }else {
+            platform.setPlatformActionListener(new PlatformActionListener() {
+                @Override
+                public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+
+                    switch (i) {
+                        case Platform.ACTION_USER_INFOR:
+                            Set<Map.Entry<String, Object>> entries = hashMap.entrySet();
+                            for (Map.Entry<String,Object>entry:entries )
+                                 {
+                                     String key = entry.getKey();
+                                     Object value = entry.getValue();
+                                     MyLog.d("flag++","key:"+key);
+                                     MyLog.d("flag++","key:"+value);
+                                 }
+                            break;
+                        case Platform.ACTION_AUTHORIZING:
+
+                            MyToast.showShort(LoginActivity.this,"第三方登陆成功，要功能不要数据");
+
+                            break;
+                    }
+                }
+                @Override
+                public void onError(Platform platform, int i, Throwable throwable) {
+                }
+                @Override
+                public void onCancel(Platform platform, int i) {
+
+                }
+            });
+
+
+        }
+
 
     }
 
@@ -96,7 +181,6 @@ public class LoginActivity extends BaseActivity {
                                     if (body.getBack().equals("true")) {
                                         MyToast.showShort(LoginActivity.this,"登录成功");
                                         LoginInfoEntity info = body.getInfo();
-
                                         MyLog.d("flag","用户信息："+info.getUser_name());
                                         startActivity(new Intent(LoginActivity.this,MainActivity.class));
                                     }else {

@@ -27,33 +27,30 @@ public interface INetServer {
     //post请求手机号
     @GET(UrlConfig.SMS_YANZHENG)
     Call<SmsCallBackEntity> GetSmsNum(@Query("phone") String phone);
-
     //check验证码
     // http://47.93.112.70:8081/index.php/home/user/checkcode
     @FormUrlEncoded
     @POST(UrlConfig.CHECK_NUM)
     Call<SmsCallBackEntity> CheckNum(@FieldMap Map<String, String> params);
-
+    //提交注册信息。
     @FormUrlEncoded
     @POST(UrlConfig.NUM_REGISTER)
     Call<RegisterCallBackEntity>PostRegistData(@FieldMap Map<String,String>params );
-
+    //忘记密码
     @FormUrlEncoded
     @POST(UrlConfig.FORGET_NUM)
     Call<RegisterCallBackEntity>ForgetPassword(@FieldMap Map<String,String>params );
-
-
+    //登录返回
     @FormUrlEncoded
     @POST(UrlConfig.NUM_LOGIN)
     Call<LoginCallBackEntity> LoginCallBack(@FieldMap Map<String, String>map);
-
-
+    //监测验证信息
     @GET(UrlConfig.CHECK_NUM)
     Call<SmsCallBackEntity> ChechRegister(@Query("phone") String phone);
 
-
     @POST(UrlConfig.HEAD_PIC)
     Call<HeadBackEntity> HeadPic(@FieldMap Map<String, String> map);
+
 
 
 

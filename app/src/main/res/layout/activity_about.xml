@@ -4,19 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="zhuoyue.com.yanjiaohuidemo.activity.SettingActivity">
 
-
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
+    tools:context="zhuoyue.com.yanjiaohuidemo.activity.AboutActivity">
 
 
 
-
-    </LinearLayout>
 
 
 

@@ -84,7 +84,6 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
         //设置的点击事件
         mSetting.setOnClickListener(this);
 
-
         return view;
     }
 

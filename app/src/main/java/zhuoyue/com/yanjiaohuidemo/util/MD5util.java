@@ -39,7 +39,7 @@ public class MD5util {
         }
     }
 
-    public String Md5Handle(String string){
+    public  String Md5Handle(String string){
         String encrypt = MD5util.encrypt(string);
         String s = encrypt + "yanjiaohui".toString();
         String encrypt1 = MD5util.encrypt(s);

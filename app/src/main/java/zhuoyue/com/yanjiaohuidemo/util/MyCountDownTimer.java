@@ -29,8 +29,10 @@ public class MyCountDownTimer extends CountDownTimer {
     //在倒计时结束的时候显示
     @Override
     public void onFinish() {
+
         mButton.setText("重新获取");
         mButton.setClickable(true);
         mButton.setTextColor(Color.argb(255,109,179,149));
+
     }
 }
