@@ -12,4 +12,6 @@
     <color name="colorRed">#de303f</color>
     <color name="colorLightRed">#ca4242</color>
     <color name="colorLightBlueBg">#5ce7f1</color>
+    <color name="colorOrange">#df9a65</color>
+    <color name="colorLogoBg">#edeae8</color>
 </resources>

@@ -95,7 +95,6 @@ public class LoginActivity extends BaseActivity {
                 });
 
 
-
                 break;
 
             case  R.id.login_qq:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,18 +7,47 @@
     android:orientation="vertical"
     tools:context="zhuoyue.com.yanjiaohuidemo.activity.SettingActivity">
 
-
     <LinearLayout
-
+        android:background="@color/colorLightGray"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="match_parent">
+
+        <include layout="@layout/setting_items_head"/>
+        <include layout="@layout/settting_item_title"/>
+
+        <include layout="@layout/setting_items"/>
+        <include layout="@layout/setting_items_bind"/>
+        <include layout="@layout/setting_items_changepwd"/>
+        <include layout="@layout/setting_items_myinfo"/>
+        <include layout="@layout/settting_item_other"/>
+        <include layout="@layout/setting_items_help"/>
+        <include layout="@layout/setting_items_seggest"/>
+        <include layout="@layout/setting_items_conn_us"/>
+        <include layout="@layout/setting_items_pingfen"/>
+        <include layout="@layout/setting_items_about"/>
+        <include layout="@layout/setting_items"/>
 
 
-
+        <Button
+            android:onClick="exit_register"
+            android:layout_marginTop="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="退出登录"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorLightRed"
+            android:layout_gravity="center_vertical"
+            />
+        <View
+            android:background="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
 
     </LinearLayout>
 
 
 
 
-</LinearLayout>
+</ScrollView>

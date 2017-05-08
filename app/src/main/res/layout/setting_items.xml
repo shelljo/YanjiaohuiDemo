@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_marginTop="1dp"
+              android:background="@color/colorWhite"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="60dp">
+
+    <TextView
+        android:id="@+id/setting_tv"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:text="账号"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+    <EditText
+        android:id="@+id/setting_et"
+        android:textSize="18sp"
+        android:gravity="right|center_vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

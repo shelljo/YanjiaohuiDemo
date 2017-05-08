@@ -4,12 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:orientation="vertical"
     tools:context="zhuoyue.com.yanjiaohuidemo.activity.AboutActivity">
 
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/about_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/jiantou"
+            />
+        <TextView
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="    关于燕郊汇"
+            />
+    </LinearLayout>
 
 
+    <ImageView
+       android:layout_centerInParent="true"
+       android:background="@drawable/shape_logo"
+       android:layout_marginTop="50dp"
+       android:layout_width="60dp"
+       android:layout_height="60dp"
+       android:src="@drawable/logodemo1"
+       android:layout_gravity="center_horizontal"
+       />
+    <TextView
+        android:textColor="@color/colorLightGray"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="燕郊汇,一键解决所有难题"
+        />
+    <TextView
+        android:textColor="@color/colorLightGray"
+        android:textSize="12sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Android版本 V1.0.0"
 
+        />
+    <TextView
+        android:textColor="@color/colorLightGray"
+        android:textSize="12sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="卓越广告传媒 "
+
+        />
+   <LinearLayout
+       android:layout_marginTop="10dp"
+       android:gravity="center"
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <TextView
+           android:textColor="@color/colorLightGray"
+           android:text="查看"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"/>
+
+       <TextView
+           android:autoLink="all"
+           android:textColor="@color/colorBlue"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/server_protocol"
+           />
+
+       <TextView
+           android:textColor="@color/colorLightGray"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="及"
+           />
+
+       <TextView
+           android:autoLink="all"
+           android:textColor="@color/colorBlue"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/secret_protocol"
+
+           />
+   </LinearLayout>
 
 
 

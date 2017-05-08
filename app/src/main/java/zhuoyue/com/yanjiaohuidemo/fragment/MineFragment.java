@@ -19,8 +19,10 @@ import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import zhuoyue.com.yanjiaohuidemo.R;
+import zhuoyue.com.yanjiaohuidemo.activity.PersonalInfoActivity;
 import zhuoyue.com.yanjiaohuidemo.activity.SettingActivity;
 import zhuoyue.com.yanjiaohuidemo.adapter.GridAdapter;
 import zhuoyue.com.yanjiaohuidemo.util.MyToast;
@@ -33,6 +35,7 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
     private GridView mGridView;
     private GridAdapter mGridAdapter;
     private ImageView mSetting,mMsm;
+    private TextView mMine_perinfo;
 
     private String mTitle[]=new String[]{"待评价","待付款","收藏","评价","余额","我的订单","抵用券","积分商城","会员中心","我的钱包"};
 
@@ -52,7 +55,6 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
     public MineFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -84,8 +86,12 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
         //设置的点击事件
         mSetting.setOnClickListener(this);
 
+        mMine_perinfo.setOnClickListener(this);
+
+
         return view;
     }
+
 
     private void initView(View view) {
 
@@ -93,6 +99,7 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
         mMsm = (ImageView) view.findViewById(R.id.mine_sms);
         mLin_Head_bg = (LinearLayout) view.findViewById(R.id.mine_head_bg);
         mGridView = (GridView) view.findViewById(R.id.mine_grid);
+        mMine_perinfo = (TextView) view.findViewById(R.id.mine_perinfo);
 
     }
 
@@ -139,7 +146,18 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public void onClick(View v) {
 
-        startActivity(new Intent(getContext(), SettingActivity.class));
+        switch (v.getId()) {
+            case R.id.mine_perinfo:
+                startActivity(new Intent(getContext(), PersonalInfoActivity.class));
+                break;
+            case R.id.mine_setting:
+                startActivity(new Intent(getContext(), SettingActivity.class));
+                break;
+
+
+        }
+
+
 
     }
 }
