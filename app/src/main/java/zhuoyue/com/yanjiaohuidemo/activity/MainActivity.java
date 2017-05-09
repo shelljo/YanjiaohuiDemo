@@ -1,9 +1,11 @@
 package zhuoyue.com.yanjiaohuidemo.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.widget.RadioGroup;
 
 import zhuoyue.com.yanjiaohuidemo.R;
@@ -12,6 +14,7 @@ import zhuoyue.com.yanjiaohuidemo.fragment.HomeFragment;
 import zhuoyue.com.yanjiaohuidemo.fragment.MineFragment;
 import zhuoyue.com.yanjiaohuidemo.fragment.SmsFragment;
 import zhuoyue.com.yanjiaohuidemo.fragment.UnknowFragment;
+import zhuoyue.com.yanjiaohuidemo.util.MyToast;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
     private RadioGroup mRadioGroup;
@@ -22,6 +25,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     //记录当前的fragment.
     private Fragment mCurrentFragment;
     private FragmentManager mFragmentManager;
+
+
 
 
     @Override
@@ -109,7 +114,54 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 mCurrentFragment = mMineFragment;
 
                 break;
-
         }
     }
+    //监听回退按钮
+    private int lastTime = 0;
+    @Override
+    public void onBackPressed() {
+//         super.onBackPressed();//程序退出
+
+//        if ((System.currentTimeMillis() - lastTime) > 2000) {// 两次点击之间的间隔大于2秒
+//
+////            Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+//            MyToast.showShort(this,"再按一次退出");
+//
+//            // 记录这次点击时间
+//            lastTime = (int) System.currentTimeMillis();
+//        } else {
+//            finish();
+//        }
+
+        System.currentTimeMillis();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+//        builder.setIcon(R.drawable.ic_launcher);
+
+        builder.setTitle("亲，是否要退出");
+
+//        builder.setMessage("亲，您不留下看一看？");
+
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                MainActivity.this.finish();
+                System.exit(0);
+
+            }
+        });
+
+        builder.setNegativeButton("取消", null);
+
+        builder.setNeutralButton("再看看", null);
+
+         builder.create().show();
+
+    }
+
+
+
 }

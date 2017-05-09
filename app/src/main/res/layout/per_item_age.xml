@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_marginTop="1dp"
+              android:id="@+id/per_data_choose"
               android:background="@color/colorWhite"
               android:orientation="horizontal"
               android:gravity="center_vertical"
@@ -12,9 +13,10 @@
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="年龄"
+        android:text="出生日期"
         />
     <EditText
+        android:id="@+id/per_data_born"
         android:layout_gravity="center"
         android:layout_width="0dp"
         android:layout_weight="1"
@@ -22,7 +24,7 @@
         android:background="@null"
         android:gravity="right|center"
         android:layout_marginRight="10dp"
-        android:hint="年龄"
+        android:hint="点击添加"
         />
 
 </LinearLayout>

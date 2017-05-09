@@ -25,6 +25,7 @@ public class LoginCallBackEntity {
     }
 
     public void setInfo(LoginInfoEntity info) {
+
         this.info = info;
     }
 }

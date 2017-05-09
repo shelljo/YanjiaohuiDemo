@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_marginTop="1dp"
               android:background="@color/colorWhite"
               android:orientation="horizontal"
               android:gravity="center_vertical"
@@ -11,10 +12,11 @@
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="昵称"
+        android:text="市"
         />
+
     <EditText
-        android:id="@+id/per_nickname"
+        android:id="@+id/per_city"
         android:layout_gravity="center"
         android:layout_width="0dp"
         android:layout_weight="1"
@@ -22,7 +24,7 @@
         android:background="@null"
         android:gravity="right|center"
         android:layout_marginRight="10dp"
-        android:hint="输入昵称"
+        android:hint="输入城市"
         />
 
 </LinearLayout>

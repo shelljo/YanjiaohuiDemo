@@ -9,8 +9,10 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
+import retrofit2.http.Url;
 import zhuoyue.com.yanjiaohuidemo.entity.HeadBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginCallBackEntity;
+import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.RegisterCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.SmsCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.url.UrlConfig;
@@ -47,9 +49,16 @@ public interface INetServer {
     //监测验证信息
     @GET(UrlConfig.CHECK_NUM)
     Call<SmsCallBackEntity> ChechRegister(@Query("phone") String phone);
-
+    //
     @POST(UrlConfig.HEAD_PIC)
     Call<HeadBackEntity> HeadPic(@FieldMap Map<String, String> map);
+
+    //上传个人信息
+    @FormUrlEncoded
+    @POST(UrlConfig.PERSONAL_INFO)
+    Call<LoginInfoEntity> PostPersonalInfo(@FieldMap Map<String, String> map);
+
+
 
 
 

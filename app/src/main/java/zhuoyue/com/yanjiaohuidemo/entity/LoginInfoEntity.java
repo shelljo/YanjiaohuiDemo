@@ -6,6 +6,10 @@ package zhuoyue.com.yanjiaohuidemo.entity;
  */
 
  public class LoginInfoEntity {
+
+    private String back;
+    private String user_nick;
+    private String age;
     private String id;
     private String user_name;
     private String user_pwd;
@@ -80,6 +84,31 @@ package zhuoyue.com.yanjiaohuidemo.entity;
     private String wx_openid;
     private String real_name;
     private String filesize;
+
+
+    public String getBack() {
+        return back;
+    }
+
+    public void setBack(String back) {
+        this.back = back;
+    }
+
+    public String getUser_nick() {
+        return user_nick;
+    }
+
+    public void setUser_nick(String user_nick) {
+        this.user_nick = user_nick;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
 
     public String getId() {
         return id;

@@ -12,9 +12,10 @@
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="地区"
+        android:text="省份"
         />
     <EditText
+        android:id="@+id/per_province"
         android:layout_gravity="center"
         android:layout_width="0dp"
         android:layout_weight="1"
@@ -22,7 +23,7 @@
         android:background="@null"
         android:gravity="right|center"
         android:layout_marginRight="10dp"
-        android:hint="北京或者燕郊"
+        android:hint="输入省份或者直辖市"
         />
 
 </LinearLayout>

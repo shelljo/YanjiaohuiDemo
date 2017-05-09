@@ -33,14 +33,29 @@
     <include layout="@layout/per_item_sex"/>
     <include layout="@layout/per_item_age"/>
     <include layout="@layout/per_item_location"/>
+    <include layout="@layout/per_item_city"/>
 
 
-    <View
-        android:layout_marginTop="1dp"
-        android:background="@color/colorWhite"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+
+   <LinearLayout
+       android:layout_marginTop="1dp"
+       android:background="@color/colorWhite"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"
+       >
+       <Button
+           android:id="@+id/per_save"
+           android:layout_margin="10dp"
+           android:text="保存"
+           android:layout_gravity="center"
+           android:background="@drawable/shape"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+
+   </LinearLayout>
+
 
 
 

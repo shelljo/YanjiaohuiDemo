@@ -1,7 +1,9 @@
 package zhuoyue.com.yanjiaohuidemo.activity;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -181,27 +183,39 @@ public class LoginActivity extends BaseActivity {
                                         MyToast.showShort(LoginActivity.this,"登录成功");
                                         LoginInfoEntity info = body.getInfo();
                                         MyLog.d("flag","用户信息："+info.getUser_name());
+                                        MyLog.d("flag","用户信息："+info.toString());
+
+                                        //其它程序不能访问,保存用户名还有密码.
+                                        SharedPreferences preferences = getSharedPreferences("perinfo", Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor edit = preferences.edit();
+                                        edit.putString("mobile", mLogin_Phone.getText().toString());
+                                        edit.putString("user_pwd", Md5Handle(mLogin_Password.getText().toString()));
+
+                                        MyLog.d("flag","mobile:"+mLogin_Phone.getText().toString());
+                                        MyLog.d("flag","user_pwd:"+ mLogin_Password.getText().toString());
+
+                                        edit.commit();
+
                                         startActivity(new Intent(LoginActivity.this,MainActivity.class));
                                     }else {
                                         if (body.getBack().equals("false")) {
                                             MyToast.showShort(LoginActivity.this,"登录失败");
                                         }
                                     }
-
                                 }else {
                                     MyLog.d("flag","body null");
                                 }
                             }
                             @Override
                             public void onFailure(Call<LoginCallBackEntity> call, Throwable t) {
+
                                 MyLog.d("flag error","error :"+t.getMessage());
+
                             }
                         });
 
                 break;
-
         }
-
 
     }
     //忘记密码，点击事件。

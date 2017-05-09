@@ -6,6 +6,8 @@ package zhuoyue.com.yanjiaohuidemo.url;
  */
 
 public class UrlConfig {
+    //图片头文件
+    public static final String IMAGE_BASE_URL = "http://47.93.112.70:8081/";
 
     public static final String BASE_URL = "http://47.93.112.70:8081/index.php/";
 
@@ -29,8 +31,12 @@ public class UrlConfig {
 
     //上传头像
     public static final String HEAD_PIC = "home/user/user_setavatar";
+
     //验证手机号码的正则。
     public final static String MATCH_PHONE = "^1[34578]{1}\\d{9}$";
+    
+    //个人信息接口
+    public static final String PERSONAL_INFO = "home/user/user_change";
 
 
 }

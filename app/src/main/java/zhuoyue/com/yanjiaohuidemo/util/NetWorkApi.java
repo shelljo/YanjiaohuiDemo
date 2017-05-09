@@ -1,5 +1,8 @@
 package zhuoyue.com.yanjiaohuidemo.util;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +12,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import zhuoyue.com.yanjiaohuidemo.entity.HeadBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginCallBackEntity;
+import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.RegisterCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.SmsCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.interfacepcg.INetServer;
@@ -26,6 +30,7 @@ public class NetWorkApi {
     private Call<SmsCallBackEntity>mSmsCallBackEntityCall;
     private Call<LoginCallBackEntity>mLoginCallBackEntityCall;
     private Call<HeadBackEntity>mHeadBackEntityCall;
+    private Call<LoginInfoEntity>mLoginInfoEntityCall;
 
 
     public NetWorkApi() {
@@ -96,9 +101,41 @@ public class NetWorkApi {
 
         mHeadBackEntityCall = mServer.HeadPic(map);
         mHeadBackEntityCall.enqueue(callback);
+    }
+    //上传个人信息
+
+
+
+    public void PostPersonalInfo(String user_nick,String sex,
+                                 String byear,String bmonth,String bday,
+                                 String province_id,String city_id,
+                                 String mobile,String user_pwd,
+                                 Callback<LoginInfoEntity>callback){
+        Map<String, String> map = new HashMap<>();
+
+        map.put("user_nick", user_nick);
+        map.put("sex", sex);
+        map.put("byear", byear);
+        map.put("bmonth", bmonth);
+        map.put("bday", bday);
+        map.put("province_id", province_id);
+        map.put("city_id", city_id);
+        map.put("mobile", mobile);
+        map.put("user_pwd", user_pwd);
+//        map.put("user_nick", "蛋蛋");
+//        map.put("sex", "女");
+//        map.put("byear", "1991");
+//        map.put("bmonth", "5");
+//        map.put("bday", "5");
+//        map.put("province_id", "河北");
+//        map.put("city_id", "邯郸");
+//        map.put("mobile", "18613317507");
+//        map.put("user_pwd", "1");
+
+        mLoginInfoEntityCall=mServer.PostPersonalInfo(map);
+        mLoginInfoEntityCall.enqueue(callback);
 
     }
-
 
 
 
