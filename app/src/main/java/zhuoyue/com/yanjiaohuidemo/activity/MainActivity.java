@@ -14,7 +14,6 @@ import zhuoyue.com.yanjiaohuidemo.fragment.HomeFragment;
 import zhuoyue.com.yanjiaohuidemo.fragment.MineFragment;
 import zhuoyue.com.yanjiaohuidemo.fragment.SmsFragment;
 import zhuoyue.com.yanjiaohuidemo.fragment.UnknowFragment;
-import zhuoyue.com.yanjiaohuidemo.util.MyToast;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
     private RadioGroup mRadioGroup;
@@ -25,6 +24,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     //记录当前的fragment.
     private Fragment mCurrentFragment;
     private FragmentManager mFragmentManager;
+
+
 
 
 
@@ -161,6 +162,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
          builder.create().show();
 
     }
+
 
 
 

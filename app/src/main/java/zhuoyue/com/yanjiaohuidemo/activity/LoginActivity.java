@@ -51,8 +51,6 @@ public class LoginActivity extends BaseActivity {
 
         initView();
 
-
-
     }
 
 
@@ -95,7 +93,6 @@ public class LoginActivity extends BaseActivity {
 
                     }
                 });
-
 
                 break;
 
@@ -154,11 +151,7 @@ public class LoginActivity extends BaseActivity {
 
                 }
             });
-
-
         }
-
-
     }
 
     // 按钮点击事件

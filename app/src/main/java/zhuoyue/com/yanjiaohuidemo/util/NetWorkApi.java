@@ -122,6 +122,8 @@ public class NetWorkApi {
         map.put("city_id", city_id);
         map.put("mobile", mobile);
         map.put("user_pwd", user_pwd);
+
+
 //        map.put("user_nick", "蛋蛋");
 //        map.put("sex", "女");
 //        map.put("byear", "1991");

@@ -1,15 +1,25 @@
 package zhuoyue.com.yanjiaohuidemo.activity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import java.io.File;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,12 +27,21 @@ import retrofit2.Response;
 import zhuoyue.com.yanjiaohuidemo.R;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
+import zhuoyue.com.yanjiaohuidemo.util.MD5util;
 import zhuoyue.com.yanjiaohuidemo.util.MyLog;
 import zhuoyue.com.yanjiaohuidemo.util.MyToast;
 import zhuoyue.com.yanjiaohuidemo.util.NetWorkApi;
+import zhuoyue.com.yanjiaohuidemo.util.SaveToImageUtils;
 
 public class PersonalInfoActivity extends AppCompatActivity implements View.OnClickListener {
-    private ImageView mPer_back;
+//这个是上传头像需要用的东西。下面都是
+    protected static final int CHOOSE_PICTURE = 0;
+    protected static final int TAKE_PICTURE = 1;
+    private static final int CROP_SMALL_PICTURE = 2;
+    protected static Uri tempUri;
+
+
+    private ImageView mPer_back,mPer_icon;
     private Button mPer_save;
     private EditText mPer_data_born, mPer_province,mPer_nickname,mPer_sex,mPer_city;
     private String mYear,mMonth,mDay,mLocation;
@@ -34,12 +53,52 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_info);
+
+        initIntent();
+
         initView();
+
         mPer_back.setOnClickListener(this);
         mPer_save.setOnClickListener(this);
+        mPer_data_born.setOnClickListener(this);
+        mPer_icon.setOnClickListener(this);
 
         initEditText();
 
+    }
+
+    private void initIntent() {
+
+        Intent intent = getIntent();
+
+        String user_nick = intent.getStringExtra("user_nick");
+        String sex = intent.getStringExtra("sex");
+        String byear = intent.getStringExtra("byear");
+        String bmonth = intent.getStringExtra("bmonth");
+        String bday = intent.getStringExtra("bday");
+        String province_id = intent.getStringExtra("province_id");
+        String city_id = intent.getStringExtra("city_id");
+
+//        mPer_data_born, mPer_province,mPer_nickname,mPer_sex,mPer_city;
+        if (mPer_data_born != null) {
+        mPer_data_born.setText(byear+"-"+bmonth+"-"+bday);
+        }
+        if (mPer_province != null) {
+
+        mPer_province.setText(province_id);
+        }
+        if (mPer_nickname != null) {
+
+            mPer_nickname.setText(user_nick);
+        }
+        if (mPer_sex != null) {
+
+            mPer_sex.setText(sex);
+        }
+
+//        mPer_nickname.setText(user_nick);
+//        mPer_sex.setText(sex);
+//        mPer_city.setText(city_id);
 
     }
 
@@ -54,10 +113,12 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
                     if(info.getUser_nick()==null){
                       mPer_nickname.setText(info.getUser_nick());
                     }
-//                    info.get
+                    mPer_sex.setText(info.getSex());
+                    mPer_province.setText(info.getProvince_id());
+                    mPer_city.setText(info.getCity_id());
+                    mPer_data_born.setText(info.getByear()+"-"+info.getBmonth()+"-"+info.getBday());
 
                 }
-
 
             }
 
@@ -71,6 +132,8 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
 
     private void initView() {
 
+
+        mPer_icon = (ImageView) findViewById(R.id.per_icon);
         mPer_city = (EditText) findViewById(R.id.per_city);
         mPer_sex = (EditText) findViewById(R.id.per_sex);
         mPer_save = (Button) findViewById(R.id.per_save);
@@ -92,7 +155,7 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
                 DatePickerDialog dialog=new DatePickerDialog(PersonalInfoActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        MyToast.showShort(PersonalInfoActivity.this,"您选择的时间是 "+year+"年，"+month+"月"+dayOfMonth+"日");
+                        MyToast.showShort(PersonalInfoActivity.this,"您选择的时间是 "+year+"年，"+(month+1)+"月"+dayOfMonth+"日");
 
                         mYear = year + "";
                         mMonth = (month+1) +"";
@@ -107,16 +170,21 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
             case R.id.per_save:
 
                 SharedPreferences sp = getSharedPreferences("perinfo", Context.MODE_PRIVATE);
-
                 mMobile = sp.getString("mobile", "");
                 mUser_pwd = sp.getString("user_pwd","");
 
-                mNetWorkApi.PostPersonalInfo(mPer_nickname.getText().toString(),
-                                             mPer_sex.getText().toString(),
-                                             mYear, mMonth, mDay, mPer_province.getText().toString(),mPer_city.getText().toString(),
+                mNetWorkApi.PostPersonalInfo(
+                        mPer_nickname.getText().toString(),
+                        mPer_sex.getText().toString(),
+                        mYear, mMonth, mDay, mPer_province.getText().toString(),mPer_city.getText().toString(),
+
+                    //    "花花","女","1994","2","11","福建","厦门",
+
                         mMobile, mUser_pwd, new Callback<LoginInfoEntity>() {
+
                     @Override
                     public void onResponse(Call<LoginInfoEntity> call, Response<LoginInfoEntity> response) {
+
                         MyLog.d("flag","nickname"+mPer_nickname.getText().toString());
                         MyLog.d("flag","sex"+ mPer_sex.getText().toString());
                         MyLog.d("flag","year"+mYear);
@@ -126,32 +194,129 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
                         MyLog.d("flag","Per_city"+mPer_city.getText().toString());
                         MyLog.d("flag","user_pwd:"+ mUser_pwd);
                         MyLog.d("flag","mobile:"+ mMobile);
-
-
                         LoginInfoEntity body = response.body();
 
                         if (body != null) {
                         MyLog.d("flag+","back"+ body.getBack());
 
-                            body.getBack().equals("true");
-                            MyToast.showShort(PersonalInfoActivity.this,"保存成功");
-                            finish();
-
+                            if (body.getBack().equals("true")) {
+                                MyToast.showShort(PersonalInfoActivity.this,"保存成功");
+                                finish();
+                            }else {
+                                MyToast.showShort(PersonalInfoActivity.this,"保存失败");
+                            }
                         }
                     }
                     @Override
                     public void onFailure(Call<LoginInfoEntity> call, Throwable t) {
+
+                        MyLog.d("flag error"+"error "+t.getMessage());
+
                     }
                 });
-                MyToast.showShort(this,"保存了啊");
                 break;
+            case R.id.per_icon:
+                showChoosePicDialog();
 
+                break;
 
         }
 
     }
 
+    private void showChoosePicDialog() {
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("选择头像");
+        String[] items = { "相册", "拍照" };
+        builder.setNegativeButton("取消", null);
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case CHOOSE_PICTURE:
+                        Intent openAlbumIntent = new Intent(
+                                Intent.ACTION_GET_CONTENT);
+                        openAlbumIntent.setType("image/*");
+                        startActivityForResult(openAlbumIntent, CHOOSE_PICTURE);
+                        break;
+                    case TAKE_PICTURE: // ����
+                        Intent openCameraIntent = new Intent(
+                                MediaStore.ACTION_IMAGE_CAPTURE);
+                        tempUri = Uri.fromFile(new File(Environment
+                                .getExternalStorageDirectory(), "image.jpg"));
+                        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
+                        startActivityForResult(openCameraIntent, TAKE_PICTURE);
+                        break;
+                }
+            }
+        });
+        builder.create().show();
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) { // ���
+            switch (requestCode) {
+                case TAKE_PICTURE:
+                    startPhotoZoom(tempUri); // ���
+                    break;
+                case CHOOSE_PICTURE:
+                    startPhotoZoom(data.getData()); // ����
+                    break;
+                case CROP_SMALL_PICTURE:
+                    if (data != null) {
+                        setImageToView(data); // ����
+                    }
+                    break;
+            }
+        }
+    }
+
+
+    protected void startPhotoZoom(Uri uri) {
+        if (uri == null) {
+            Log.i("tag", "The uri is not exist.");
+        }
+        tempUri = uri;
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        // ���òü�
+        intent.putExtra("crop", "true");
+        // aspectX aspectY �ǿ�ߵı���
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        // outputX outputY �ǲü�ͼƬ���
+        intent.putExtra("outputX", 150);
+        intent.putExtra("outputY", 150);
+        intent.putExtra("return-data", true);
+        startActivityForResult(intent, CROP_SMALL_PICTURE);
+    }
+
+    protected void setImageToView(Intent data) {
+        Bundle extras = data.getExtras();
+        if (extras != null) {
+            Bitmap photo = extras.getParcelable("data");
+            photo = SaveToImageUtils.toRoundBitmap(photo, tempUri); // �
+            mPer_icon.setImageBitmap(photo);
+            uploadPic(photo);
+        }
+    }
+
+    private void uploadPic(Bitmap bitmap) {
+
+        String imagePath = SaveToImageUtils.savePhoto(bitmap, Environment
+                .getExternalStorageDirectory().getAbsolutePath(), String
+                .valueOf(System.currentTimeMillis()));
+        Log.e("imagePath", imagePath+"");
+        if(imagePath != null){
+            // ����imagePath���
+            // ...
+        }
+    }
 
 
 }

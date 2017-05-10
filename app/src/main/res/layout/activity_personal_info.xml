@@ -29,12 +29,12 @@
             />
     </LinearLayout>
 
+    <include layout="@layout/per_item_icon"/>
     <include layout="@layout/per_item_nickname"/>
     <include layout="@layout/per_item_sex"/>
     <include layout="@layout/per_item_age"/>
     <include layout="@layout/per_item_location"/>
     <include layout="@layout/per_item_city"/>
-
 
 
    <LinearLayout

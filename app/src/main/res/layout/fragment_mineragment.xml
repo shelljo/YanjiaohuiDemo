@@ -2,12 +2,11 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/colorLightGray"
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:background="@color/colorLightGray"
             tools:context="zhuoyue.com.yanjiaohuidemo.fragment.MineFragment">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,10 +14,10 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_marginTop="20dp"
             android:id="@+id/mine_head_bg"
             android:layout_width="match_parent"
             android:layout_height="160dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <RelativeLayout
@@ -26,22 +25,22 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_marginRight="10dp"
-                    android:padding="10dp"
                     android:id="@+id/mine_sms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
                     android:src="@drawable/sms"
                     />
 
                 <ImageView
                     android:id="@+id/mine_setting"
-                    android:padding="10dp"
-                    android:src="@drawable/setting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@id/mine_sms"
+                    android:padding="10dp"
+                    android:src="@drawable/setting"
                     />
 
                 <ImageView
@@ -66,13 +65,13 @@
 
                 <TextView
                     android:id="@+id/mine_perinfo"
-                    android:drawableRight="@drawable/youjiantou"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/mine_user_name"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_toRightOf="@id/mine_head_pic"
+                    android:drawableRight="@drawable/youjiantou"
                     android:text="个人信息  "
                     android:textColor="@color/colorWhite"/>
             </RelativeLayout>
@@ -80,72 +79,72 @@
         </LinearLayout>
 
 
-            <GridView
-                android:columnWidth="80dp"
-                android:padding="10dp"
-                android:background="@color/colorWhite"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:horizontalSpacing="10dp"
-                android:verticalSpacing="20dp"
-                android:numColumns="5"
-                android:id="@+id/mine_grid"
+        <GridView
+            android:id="@+id/mine_grid"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            android:background="@color/colorWhite"
+            android:columnWidth="80dp"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="5"
+            android:padding="10dp"
+            android:verticalSpacing="20dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorWhite">
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@android:drawable/sym_action_email"
+                android:gravity="center_vertical"
+                android:text="   使用帮助"
                 />
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorWhite">
-
-        <TextView
-            android:gravity="center_vertical"
-            android:drawableLeft="@android:drawable/sym_action_email"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:text="   使用帮助"
-            />
+            android:layout_height="50dp"
+            android:layout_marginTop="1dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@android:drawable/sym_action_email"
+                android:gravity="center_vertical"
+                android:text="  反馈建议"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="1dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@android:drawable/ic_menu_compass"
+                android:gravity="center_vertical"
+                android:text="  关于我们"
+                />
+        </LinearLayout>
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#FFFFFF">
-
-        <TextView
-            android:gravity="center_vertical"
-            android:drawableLeft="@android:drawable/sym_action_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:text="  反馈建议"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#FFFFFF">
-
-        <TextView
-            android:gravity="center_vertical"
-            android:drawableLeft="@android:drawable/ic_menu_compass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:text="  关于我们"
-            />
-       </LinearLayout>
-
-   </LinearLayout>
 
 </ScrollView>
