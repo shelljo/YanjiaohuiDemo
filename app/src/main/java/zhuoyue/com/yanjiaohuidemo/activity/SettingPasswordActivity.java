@@ -18,6 +18,10 @@ import zhuoyue.com.yanjiaohuidemo.util.MyLog;
 import zhuoyue.com.yanjiaohuidemo.util.MyToast;
 import zhuoyue.com.yanjiaohuidemo.util.NetWorkApi;
 
+/**
+ * 这个是设置密码
+ * */
+
 public class SettingPasswordActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText mSet_password,mSet_password_again;
     private Button mOk;

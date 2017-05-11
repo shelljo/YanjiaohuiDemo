@@ -53,8 +53,6 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-
-
     private void initView() {
 
         mLogin_Phone = (EditText) findViewById(R.id.login_phone_number);
@@ -63,7 +61,6 @@ public class LoginActivity extends BaseActivity {
         mGoto_Register = (Button) findViewById(R.id.login_goto_register);
 
     }
-
     //三方登录
     public void Sanfang_click(View view) {
         switch (view.getId()) {
@@ -85,15 +82,11 @@ public class LoginActivity extends BaseActivity {
                     }
                     @Override
                     public void onError(Platform platform, int i, Throwable throwable) {
-
                     }
-
                     @Override
                     public void onCancel(Platform platform, int i) {
-
                     }
                 });
-
                 break;
 
             case  R.id.login_qq:
@@ -109,9 +102,7 @@ public class LoginActivity extends BaseActivity {
                 MyToast.showShort(LoginActivity.this,"微信登录");
 
                 break;
-
         }
-
     }
 
     private void Login(Platform platform) {
@@ -153,7 +144,6 @@ public class LoginActivity extends BaseActivity {
             });
         }
     }
-
     // 按钮点击事件
     public void register_click(View view) {
         switch (view.getId()) {
@@ -209,13 +199,10 @@ public class LoginActivity extends BaseActivity {
 
                 break;
         }
-
     }
     //忘记密码，点击事件。
     public void forget_password(View view) {
-
         startActivity(new Intent(LoginActivity.this,ForgetPasswordActivity.class));
-
     }
 
     public String Md5Handle(String string){

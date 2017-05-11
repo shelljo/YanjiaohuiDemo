@@ -1,12 +1,16 @@
 package zhuoyue.com.yanjiaohuidemo.interfacepcg;
 
+import java.io.File;
 import java.util.Map;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 import retrofit2.http.Url;
@@ -42,16 +46,20 @@ public interface INetServer {
     @FormUrlEncoded
     @POST(UrlConfig.FORGET_NUM)
     Call<RegisterCallBackEntity>ForgetPassword(@FieldMap Map<String,String>params );
+
     //登录返回
     @FormUrlEncoded
     @POST(UrlConfig.NUM_LOGIN)
     Call<LoginCallBackEntity> LoginCallBack(@FieldMap Map<String, String>map);
+
     //监测验证信息
     @GET(UrlConfig.CHECK_NUM)
     Call<SmsCallBackEntity> ChechRegister(@Query("phone") String phone);
-    //
+
+    //上传头像
+    @Multipart
     @POST(UrlConfig.HEAD_PIC)
-    Call<HeadBackEntity> HeadPic(@FieldMap Map<String, String> map);
+    Call<HeadBackEntity> HeadPic(@FieldMap Map<String, String>map, @Part MultipartBody.Part file);
 
     //上传个人信息
     @FormUrlEncoded

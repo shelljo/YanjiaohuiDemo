@@ -15,6 +15,10 @@ import zhuoyue.com.yanjiaohuidemo.fragment.MineFragment;
 import zhuoyue.com.yanjiaohuidemo.fragment.SmsFragment;
 import zhuoyue.com.yanjiaohuidemo.fragment.UnknowFragment;
 
+/**
+ * 这个是主页面。
+ * */
+
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
     private RadioGroup mRadioGroup;
     private HomeFragment mHomeFragment;

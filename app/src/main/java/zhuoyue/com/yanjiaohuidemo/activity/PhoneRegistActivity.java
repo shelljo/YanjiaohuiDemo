@@ -25,6 +25,10 @@ import zhuoyue.com.yanjiaohuidemo.util.MyLog;
 import zhuoyue.com.yanjiaohuidemo.util.MyToast;
 import zhuoyue.com.yanjiaohuidemo.util.NetWorkApi;
 
+/**
+ * 这个是手机号码注册
+ * */
+
 public class PhoneRegistActivity extends AppCompatActivity {
     private EditText mRegister_Phone,mRegister_Num,mRegister_Pwd;
     private Button mGet_Num,mOk;

@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import zhuoyue.com.yanjiaohuidemo.R;
 
+/**
+ * 这个是设置页面。
+ * */
+
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView mSetting_back;
 

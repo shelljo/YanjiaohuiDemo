@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="zhuoyue.com.yanjiaohuidemo.activity.BusinessActivity">
+
+    <LinearLayout
+
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:scaleX="0.4"
+            android:scaleY="0.4"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/back_anniu"
+            />
+          <LinearLayout
+              android:layout_margin="5dp"
+              android:background="@drawable/shape"
+              android:orientation="horizontal"
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              >
+             <ImageView
+                 android:scaleX="0.8"
+                 android:scaleY="0.8"
+                 android:src="@drawable/sousuo"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"/>
+
+             <EditText
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:background="@null"
+                 android:hint="输入商户名、地点"
+                 />
+          </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:background="@color/colorLightGray"
+        android:text="轮播图占位"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+    <TextView
+        android:gravity="center"
+        android:text="spinner占位"
+        android:background="@color/colorLightGray"
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+    <TextView
+        android:gravity=""
+        android:text="显示地理位置占位"
+        android:background="@color/colorLightGray"
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+    <ListView
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorLightGray"
+        />
+
+
+
+</LinearLayout>

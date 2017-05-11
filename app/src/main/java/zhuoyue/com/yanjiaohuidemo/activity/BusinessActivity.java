@@ -6,15 +6,13 @@ import android.os.Bundle;
 import zhuoyue.com.yanjiaohuidemo.R;
 
 /**
- * 这个是建议页面
+ * 这个是商家页面
  * */
-public class SuggestActivity extends AppCompatActivity {
+public class BusinessActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_suggest);
-
-
+        setContentView(R.layout.activity_business);
     }
 }

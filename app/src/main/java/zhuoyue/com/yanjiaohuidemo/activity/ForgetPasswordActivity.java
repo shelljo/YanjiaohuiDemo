@@ -21,6 +21,9 @@ import zhuoyue.com.yanjiaohuidemo.util.MyCountDownTimer;
 import zhuoyue.com.yanjiaohuidemo.util.MyLog;
 import zhuoyue.com.yanjiaohuidemo.util.MyToast;
 import zhuoyue.com.yanjiaohuidemo.util.NetWorkApi;
+/**
+ * 这个是忘记密码页面。
+ * */
 
 public class ForgetPasswordActivity extends AppCompatActivity {
     private EditText mForget_Phone,mForget_num;

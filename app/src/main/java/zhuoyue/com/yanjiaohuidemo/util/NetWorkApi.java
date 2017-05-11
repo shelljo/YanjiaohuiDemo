@@ -3,9 +3,11 @@ package zhuoyue.com.yanjiaohuidemo.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -93,19 +95,16 @@ public class NetWorkApi {
 
     //上传头像
 
-
-    public void HeadPic(String phone,String pwd,Callback<HeadBackEntity>callback){
+    public void HeadPic(String phone, String pwd, MultipartBody.Part file, Callback<HeadBackEntity>callback){
         Map<String, String> map = new HashMap<>();
         map.put("mobile", phone);
         map.put("user_pwd", pwd);
 
-        mHeadBackEntityCall = mServer.HeadPic(map);
+        mHeadBackEntityCall = mServer.HeadPic(map,file);
         mHeadBackEntityCall.enqueue(callback);
+
     }
     //上传个人信息
-
-
-
     public void PostPersonalInfo(String user_nick,String sex,
                                  String byear,String bmonth,String bday,
                                  String province_id,String city_id,
@@ -122,17 +121,6 @@ public class NetWorkApi {
         map.put("city_id", city_id);
         map.put("mobile", mobile);
         map.put("user_pwd", user_pwd);
-
-
-//        map.put("user_nick", "蛋蛋");
-//        map.put("sex", "女");
-//        map.put("byear", "1991");
-//        map.put("bmonth", "5");
-//        map.put("bday", "5");
-//        map.put("province_id", "河北");
-//        map.put("city_id", "邯郸");
-//        map.put("mobile", "18613317507");
-//        map.put("user_pwd", "1");
 
         mLoginInfoEntityCall=mServer.PostPersonalInfo(map);
         mLoginInfoEntityCall.enqueue(callback);

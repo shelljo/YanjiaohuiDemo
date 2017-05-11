@@ -145,6 +145,38 @@
                 />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="1dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@android:drawable/ic_menu_compass"
+                android:gravity="center_vertical"
+                android:text="  我的购物"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="1dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@android:drawable/ic_menu_compass"
+                android:gravity="center_vertical"
+                android:text="  收货地址"
+                />
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

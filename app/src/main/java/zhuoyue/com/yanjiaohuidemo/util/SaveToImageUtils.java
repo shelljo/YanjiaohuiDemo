@@ -68,10 +68,8 @@ public class SaveToImageUtils {
 	}
 
 	/**
-	 * ת��ͼƬ��Բ��
-	 * 
 	 * @param bitmap
-	 *            ����Bitmap����
+	 *
 	 * @param tempUri
 	 * @return
 	 */
@@ -116,18 +114,14 @@ public class SaveToImageUtils {
 				(int) dst_right, (int) dst_bottom);
 		final RectF rectF = new RectF(dst);
 
-		paint.setAntiAlias(true);// ���û����޾��
-
-		canvas.drawARGB(0, 0, 0, 0); // �������Canvas
+		paint.setAntiAlias(true);
+		canvas.drawARGB(0, 0, 0, 0);
 		paint.setColor(color);
 
-		// ���������ַ�����Բ,drawRounRect��drawCircle
-		// canvas.drawRoundRect(rectF, roundPx, roundPx, paint);//
-		// ��Բ�Ǿ��Σ���һ������Ϊͼ����ʾ���򣬵ڶ��������͵����������ֱ���ˮƽԲ�ǰ뾶�ʹ�ֱԲ�ǰ뾶��
 		canvas.drawCircle(roundPx, roundPx, roundPx, paint);
 
-		paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));// ��������ͼƬ�ཻʱ��ģʽ,�ο�http://trylovecatch.iteye.com/blog/1189452
-		canvas.drawBitmap(bitmap, src, dst, paint); // ��Mode.SRC_INģʽ�ϲ�bitmap���Ѿ�draw�˵�Circle
+		paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
+		canvas.drawBitmap(bitmap, src, dst, paint);
 
 		return output;
 	}

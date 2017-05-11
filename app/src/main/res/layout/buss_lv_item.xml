@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/colorWhite"
+              android:layout_width="match_parent"
+              android:layout_height="120dp">
+    
+    <ImageView
+        android:id="@+id/item_iv"
+        android:background="#f00"
+        android:layout_margin="5dp"
+        android:src="@drawable/logodemo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <TextView
+        android:textSize="18sp"
+        android:layout_toRightOf="@+id/item_iv"
+        android:layout_alignTop="@+id/item_iv"
+        android:text=" 正宗杨明宇黄焖鸡米饭（纳丹堡呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵）"
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+
+
+
+</RelativeLayout>
