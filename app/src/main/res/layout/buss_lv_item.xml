@@ -6,7 +6,7 @@
               android:layout_height="120dp">
     
     <ImageView
-        android:id="@+id/item_iv"
+        android:id="@+id/buss_item_iv"
         android:background="#f00"
         android:layout_margin="5dp"
         android:src="@drawable/logodemo"
@@ -14,17 +14,106 @@
         android:layout_height="100dp"/>
 
     <TextView
+        android:id="@+id/buss_item_title_tv"
         android:textSize="18sp"
-        android:layout_toRightOf="@+id/item_iv"
-        android:layout_alignTop="@+id/item_iv"
-        android:text=" 正宗杨明宇黄焖鸡米饭（纳丹堡呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵）"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/buss_item_iv"
+        android:layout_toRightOf="@+id/buss_item_iv"
+        android:text="正宗杨明宇黄焖鸡米饭（纳丹堡呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵）"
         android:maxLines="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <RatingBar
+        android:id="@+id/buss_item_ratingbar"
+        android:progressTint="@color/colorYellow"
+        android:layout_below="@+id/buss_item_title_tv"
+        android:layout_marginTop="5dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:rating="2.5"
+        android:layout_marginLeft="10dp"
+        android:stepSize="0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/buss_item_iv"
+        style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+        />
 
+    <LinearLayout
+        android:id="@+id/buss_item_zaninfo"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/buss_item_ratingbar"
+        android:layout_toRightOf="@+id/buss_item_iv"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/buss_item_per_people"
+            android:text="¥20元/人"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
 
+        <ImageView
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/zan"
+            />
 
+        <TextView
+            android:id="@+id/buss_item_zan"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center"
+            android:text="36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignBottom="@id/buss_item_iv"
+
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/buss_item_zaninfo"
+        android:layout_toRightOf="@+id/buss_item_iv"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/buss_item_type"
+            android:layout_gravity="center"
+            android:text="小吃快餐"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <ImageView
+            android:src="@drawable/icon_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/buss_item_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="1dp"
+            android:text="36"/>
+    </LinearLayout>
 
 </RelativeLayout>

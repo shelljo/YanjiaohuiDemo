@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 
 import zhuoyue.com.yanjiaohuidemo.R;
+import zhuoyue.com.yanjiaohuidemo.activity.BusinessActivity;
 import zhuoyue.com.yanjiaohuidemo.activity.PersonalInfoActivity;
 import zhuoyue.com.yanjiaohuidemo.activity.SettingActivity;
 import zhuoyue.com.yanjiaohuidemo.adapter.GridAdapter;
@@ -122,6 +123,7 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
         switch (position) {
             case 0:
                 MyToast.showShort(getContext(), "点击了第" + position + "条数据");
+                startActivity(new Intent(getContext(), BusinessActivity.class));
                 break;
             case 1:
                 MyToast.showShort(getContext(), "点击了第" + position + "条数据");

@@ -6,6 +6,8 @@ package zhuoyue.com.yanjiaohuidemo.url;
  */
 
 public class UrlConfig {
+
+    public static final String RMB = "¥";
     //图片头文件
     public static final String IMAGE_BASE_URL = "http://47.93.112.70:8081/";
 
