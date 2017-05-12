@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--layout layout_loading-->
+    <string name="text_layout_loading_status">加载中...</string>
+    <string name="text_layout_error_status">加载失败\n点击屏幕重试</string>
+    <string name="no_network">当前网络不可用</string>
+    <string name="dialog_tip_tittle">用户须知</string>
+    <string name="dialog_tip_content">要托付</string>
+    <string name="dialog_tip_btn">知道了</string>
+    <string name="rc_today_format">今天 %1$s</string>
+    <string name="rc_yesterday_format">昨天 %1$s</string>
+    <!-- net -->
+    <string name="error_title">错误</string>
+    <string name="error_quit">出错了，应用即将关闭</string>
+    <string name="error_necessary">必填</string>
+    <string name="business_logic_error_message">操作失败，请重试：）</string>
+    <string name="network_error_message">网络出现异常，请求失败！</string>
+    <string name="network_unavailable">网络断开</string>
+    <string name="g_pull_up_for_more">上拉加载更多</string>
+    <string name="g_release_for_more">松开加载更多</string>
+    <string name="g_loading">正在加载&#8230;</string>
+    <string name="g_nodata">暂无记录</string>
+    <string name="g_image_desc"></string>
+    <!-- video save -->
+    <string name="text_video_save">已保存到相册</string>
+    <string name="text_video_save_fail">保存失败</string>
+</resources>

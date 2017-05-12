@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white" >#ffffff</color>
+    <color name="bg_floder_press">#bdbdbd</color>
+
+    <color name="gray_f1f1f1">#F1F1F1</color>
+
+    <!--XVideoView-->
+    <color name="uvv_gray">#969696</color>
+    <color name="uvv_black">#ff000000</color>
+    <color name="uvv_light_gray">#ffF0F0F0</color>
+    <color name="uvv_titlebar_bg">#7f000000</color>
+
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#303d42">
+
+    <com.yaotuofu.common.ninephotos.widget.BGAImageView
+        android:id="@+id/iv_item_photo_picker_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        app:bga_iv_isSquare="true"
+        tools:src="@mipmap/bga_pp_ic_gallery_camera" />
+
+    <TextView
+        android:id="@+id/tv_item_photo_picker_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/iv_item_photo_picker_photo"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:text="拍摄照片"
+        android:textColor="#adb2bb"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/iv_item_photo_picker_flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:src="@mipmap/bga_pp_ic_cb_normal" />
+
+</RelativeLayout>
