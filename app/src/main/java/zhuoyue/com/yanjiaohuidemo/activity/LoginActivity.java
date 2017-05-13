@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -167,12 +166,19 @@ public class LoginActivity extends BaseActivity {
                                         LoginInfoEntity info = body.getInfo();
                                         MyLog.d("flag","用户信息："+info.getUser_name());
                                         MyLog.d("flag","用户信息："+info.toString());
-
                                         //其它程序不能访问,保存用户名还有密码.
                                         SharedPreferences preferences = getSharedPreferences("perinfo", Context.MODE_PRIVATE);
                                         SharedPreferences.Editor edit = preferences.edit();
                                         edit.putString("mobile", mLogin_Phone.getText().toString());
                                         edit.putString("user_pwd", Md5Handle(mLogin_Password.getText().toString()));
+
+                                        edit.putString("nickname",info.getUser_nick());
+                                        edit.putString("sex",info.getSex());
+                                        edit.putString("year", info.getByear());
+                                        edit.putString("month", info.getBmonth());
+                                        edit.putString("mday", info.getBday());
+                                        edit.putString("per_provinc",info.getProvince_id());
+                                        edit.putString("Per_city", info.getCity_id());
 
                                         MyLog.d("flag","mobile:"+mLogin_Phone.getText().toString());
                                         MyLog.d("flag","user_pwd:"+ mLogin_Password.getText().toString());

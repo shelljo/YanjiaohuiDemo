@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="#ccdec7"
+              android:layout_height="wrap_content">
+
+   <LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="48dp">
+
+       <zhuoyue.com.yanjiaohuidemo.diyview.DropDownMenu
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           app:ddmenuTextSize="13sp"
+           app:ddtextUnselectedColor="@color/drop_down_unselected"
+           app:ddtextSelectedColor="@color/drop_down_selected"
+           app:dddividerColor="@color/gray"
+           app:ddunderlineColor="@color/gray"
+           app:ddmenuSelectedIcon="@drawable/drop_down_selected_icon"
+           app:ddmaskColor="@color/mask_color"
+           app:ddmenuBackgroundColor="@color/white"
+           app:ddmenuUnselectedIcon="@drawable/drop_down_unselected_icon"
+           />
+
+   </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="我是地理位置"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>

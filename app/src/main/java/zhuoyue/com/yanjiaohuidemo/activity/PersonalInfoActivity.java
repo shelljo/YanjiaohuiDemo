@@ -149,6 +149,7 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
                 },1990,1,1);
                 dialog.show();
                 break;
+
             //点击保存
             case R.id.per_save:
 
@@ -163,7 +164,6 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
                 edit.putString("per_provinc", mPer_province.getText().toString());
                 edit.putString("Per_city", mPer_city.getText().toString());
                 edit.commit();
-
 
                 mMobile = sp.getString("mobile", "");
                 mUser_pwd = sp.getString("user_pwd","");
@@ -269,7 +269,6 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-
     protected void startPhotoZoom(Uri uri) {
         if (uri == null) {
             Log.i("tag", "The uri is not exist.");
@@ -313,7 +312,6 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
             RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
             MultipartBody.Part body = MultipartBody.Part.createFormData("aFile", file.getName(),requestBody);
 
-
             SharedPreferences sp = getSharedPreferences("perinfo", Context.MODE_PRIVATE);
             mMobile = sp.getString("mobile", "");
             mUser_pwd = sp.getString("user_pwd","");
@@ -335,6 +333,7 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
 
                @Override
                public void onFailure(Call<HeadBackEntity> call, Throwable t) {
+
                       MyLog.d("flag","up Icon :"+t.getMessage());
 
                }

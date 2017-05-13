@@ -1,86 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="zhuoyue.com.yanjiaohuidemo.activity.BusinessActivity">
 
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
+    <!--<LinearLayout-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="48dp">-->
+
+        <!--<ImageView-->
+            <!--android:scaleX="0.4"-->
+            <!--android:scaleY="0.4"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:src="@drawable/back_anniu"-->
+            <!--/>-->
+
+          <!--<LinearLayout-->
+              <!--android:layout_marginRight="10dp"-->
+              <!--android:background="@drawable/shape"-->
+              <!--android:orientation="horizontal"-->
+              <!--android:layout_width="0dp"-->
+              <!--android:layout_height="match_parent"-->
+              <!--android:layout_weight="1"-->
+              <!--&gt;-->
+
+             <!--<ImageView-->
+                 <!--android:src="@drawable/sousuo"-->
+                 <!--android:layout_width="wrap_content"-->
+                 <!--android:layout_height="wrap_content"/>-->
+
+              <!--<EditText-->
+                  <!--android:layout_width="match_parent"-->
+                  <!--android:layout_height="match_parent"-->
+                  <!--android:layout_weight="1"-->
+                  <!--android:background="@null"-->
+                  <!--android:hint="输入商户名、地点"-->
+                  <!--/>-->
+
+          <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<TextView-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:background="@color/colorLightGray"-->
+        <!--android:text="轮播图占位"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="80dp"/>-->
+
+    <!--<TextView-->
+        <!--android:gravity="center"-->
+        <!--android:text="spinner占位"-->
+        <!--android:background="@color/colorLightGray"-->
+        <!--android:layout_marginTop="1dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"/>-->
+
+
+    <!--<TextView-->
+        <!--android:gravity=""-->
+        <!--android:text="显示地理位置占位"-->
+        <!--android:background="@color/colorLightGray"-->
+        <!--android:layout_marginTop="1dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="30dp"/>-->
+
+
+    <!--<ListView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginTop="1dp"-->
+        <!--android:background="@color/colorLightGray"-->
+        <!--android:entries="@array/book"-->
+        <!--/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/title"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:background="#332b3b"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:gravity="center"-->
+        <!--android:text="标题" />-->
+
+    <FrameLayout
+
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="wrap_content"
+        >
 
-        <ImageView
-            android:scaleX="0.4"
-            android:scaleY="0.4"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/back_anniu"
-            />
+        <ListView
+            android:entries="@array/book"
+            android:id="@+id/buss_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-          <LinearLayout
-              android:layout_marginRight="10dp"
-              android:background="@drawable/shape"
-              android:orientation="horizontal"
-              android:layout_width="0dp"
-              android:layout_height="match_parent"
-              android:layout_weight="1"
-              >
+        <LinearLayout
+            android:id="@+id/buss_lin_is"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ccedc7"
+            android:orientation="vertical"
+            android:visibility="gone" >
 
-             <ImageView
-                 android:src="@drawable/sousuo"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"/>
+            <zhuoyue.com.yanjiaohuidemo.diyview.DropDownMenu
+                android:id="@+id/buss_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:ddmenuTextSize="13sp"
+                app:ddtextUnselectedColor="@color/drop_down_unselected"
+                app:ddtextSelectedColor="@color/drop_down_selected"
+                app:dddividerColor="@color/gray"
+                app:ddunderlineColor="@color/gray"
+                app:ddmenuSelectedIcon="@drawable/drop_down_selected_icon"
+                app:ddmaskColor="@color/mask_color"
+                app:ddmenuBackgroundColor="@color/white"
+                app:ddmenuUnselectedIcon="@drawable/drop_down_unselected_icon"
+                />
+            
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-              <EditText
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:layout_weight="1"
-                  android:background="@null"
-                  android:hint="输入商户名、地点"
-                  />
-
-          </LinearLayout>
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:background="@color/colorLightGray"
-        android:text="轮播图占位"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"/>
-
-    <TextView
-        android:gravity="center"
-        android:text="spinner占位"
-        android:background="@color/colorLightGray"
-        android:layout_marginTop="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"/>
+            <TextView
+                android:id="@+id/buss_location"
+                android:text="我是地理位置"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                />
 
 
-    <TextView
-        android:gravity=""
-        android:text="显示地理位置占位"
-        android:background="@color/colorLightGray"
-        android:layout_marginTop="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"/>
+            </LinearLayout>
 
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="1dp"
-        android:background="@color/colorLightGray"
-        android:entries="@array/book"
-        />
+
+        </LinearLayout>
+    </FrameLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

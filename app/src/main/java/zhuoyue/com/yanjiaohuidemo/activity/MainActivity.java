@@ -19,6 +19,7 @@ import zhuoyue.com.yanjiaohuidemo.fragment.UnknowFragment;
  * 这个是主页面。
  * */
 
+
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
     private RadioGroup mRadioGroup;
     private HomeFragment mHomeFragment;
@@ -28,10 +29,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     //记录当前的fragment.
     private Fragment mCurrentFragment;
     private FragmentManager mFragmentManager;
-
-
-
-
 
 
     @Override
@@ -126,7 +123,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     public void onBackPressed() {
 //         super.onBackPressed();//程序退出
-
 //        if ((System.currentTimeMillis() - lastTime) > 2000) {// 两次点击之间的间隔大于2秒
 //
 ////            Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
@@ -137,6 +133,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 //        } else {
 //            finish();
 //        }
+
 
         System.currentTimeMillis();
 
@@ -163,7 +160,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
         builder.setNeutralButton("再看看", null);
 
-         builder.create().show();
+        builder.create().show();
 
     }
 
