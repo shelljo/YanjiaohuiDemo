@@ -40,5 +40,9 @@ public class UrlConfig {
     //个人信息接口
     public static final String PERSONAL_INFO = "home/user/user_change";
 
+    //首页的各种信息的url
+    public static final String HOME_INFO = "home/index/index_getall";
+
+
 
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:background="#ccdec7"
@@ -11,19 +10,13 @@
        android:layout_width="match_parent"
        android:layout_height="48dp">
 
-       <zhuoyue.com.yanjiaohuidemo.diyview.DropDownMenu
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           app:ddmenuTextSize="13sp"
-           app:ddtextUnselectedColor="@color/drop_down_unselected"
-           app:ddtextSelectedColor="@color/drop_down_selected"
-           app:dddividerColor="@color/gray"
-           app:ddunderlineColor="@color/gray"
-           app:ddmenuSelectedIcon="@drawable/drop_down_selected_icon"
-           app:ddmaskColor="@color/mask_color"
-           app:ddmenuBackgroundColor="@color/white"
-           app:ddmenuUnselectedIcon="@drawable/drop_down_unselected_icon"
-           />
+     <TextView
+         android:id="@+id/buss_tv"
+         android:gravity="center"
+         android:layout_width="match_parent"
+         android:layout_height="48dp"
+         android:text="悬浮内容"
+         />
 
    </LinearLayout>
 
@@ -38,7 +31,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             />
-
 
     </LinearLayout>
 

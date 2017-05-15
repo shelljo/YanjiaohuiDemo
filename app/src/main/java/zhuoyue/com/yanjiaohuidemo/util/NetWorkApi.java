@@ -16,6 +16,7 @@ import zhuoyue.com.yanjiaohuidemo.entity.HeadBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.RegisterCallBackEntity;
+import zhuoyue.com.yanjiaohuidemo.entity.ShangjiaEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.SmsCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.interfacepcg.INetServer;
 import zhuoyue.com.yanjiaohuidemo.url.UrlConfig;
@@ -33,6 +34,9 @@ public class NetWorkApi {
     private Call<LoginCallBackEntity>mLoginCallBackEntityCall;
     private Call<HeadBackEntity>mHeadBackEntityCall;
     private Call<LoginInfoEntity>mLoginInfoEntityCall;
+
+    //这个是商家列表
+    private Call<ShangjiaEntity>mShangjiaEntityCall;
 
 
     public NetWorkApi() {
@@ -124,8 +128,16 @@ public class NetWorkApi {
 
         mLoginInfoEntityCall=mServer.PostPersonalInfo(map);
         mLoginInfoEntityCall.enqueue(callback);
+    }
+
+    public void GetHomeInfo(String city,String xpoint,String ypoint,Callback<ShangjiaEntity>callback){
+
+        mShangjiaEntityCall = mServer.GetHomeInfo(city, xpoint, ypoint);
+        mShangjiaEntityCall.enqueue(callback);
 
     }
+
+
 
 
 

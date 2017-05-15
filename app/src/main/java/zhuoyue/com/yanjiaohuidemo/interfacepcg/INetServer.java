@@ -1,6 +1,7 @@
 package zhuoyue.com.yanjiaohuidemo.interfacepcg;
 
 import java.io.File;
+import java.net.URL;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
@@ -18,6 +19,7 @@ import zhuoyue.com.yanjiaohuidemo.entity.HeadBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.RegisterCallBackEntity;
+import zhuoyue.com.yanjiaohuidemo.entity.ShangjiaEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.SmsCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.url.UrlConfig;
 
@@ -65,6 +67,9 @@ public interface INetServer {
     @FormUrlEncoded
     @POST(UrlConfig.PERSONAL_INFO)
     Call<LoginInfoEntity> PostPersonalInfo(@FieldMap Map<String, String> map);
+
+    @GET(UrlConfig.HOME_INFO)
+    Call<ShangjiaEntity> GetHomeInfo(@Query("city_id") String city_id,@Query("xpoint")String xpoint,@Query("ypoint")String ypoint );
 
 
 

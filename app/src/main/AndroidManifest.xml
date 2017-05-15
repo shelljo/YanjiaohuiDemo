@@ -78,6 +78,10 @@
         </activity>
         <activity android:name=".activity.BusinessActivity">
         </activity>
+        <activity android:name=".activity.DropDownTestActivity">
+        </activity>
+        <activity android:name=".activity.ShangjiaActivity">
+        </activity>
     </application>
 
 </manifest>

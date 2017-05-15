@@ -25,8 +25,10 @@ import android.widget.TextView;
 
 import zhuoyue.com.yanjiaohuidemo.R;
 import zhuoyue.com.yanjiaohuidemo.activity.BusinessActivity;
+import zhuoyue.com.yanjiaohuidemo.activity.DropDownTestActivity;
 import zhuoyue.com.yanjiaohuidemo.activity.PersonalInfoActivity;
 import zhuoyue.com.yanjiaohuidemo.activity.SettingActivity;
+import zhuoyue.com.yanjiaohuidemo.activity.ShangjiaActivity;
 import zhuoyue.com.yanjiaohuidemo.adapter.GridAdapter;
 import zhuoyue.com.yanjiaohuidemo.util.MyToast;
 import zhuoyue.com.yanjiaohuidemo.util.NetWorkApi;
@@ -127,9 +129,11 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
                 break;
             case 1:
                 MyToast.showShort(getContext(), "点击了第" + position + "条数据");
+                startActivity(new Intent(getContext(), DropDownTestActivity.class));
                 break;
             case 2:
                 MyToast.showShort(getContext(), "点击了第" + position + "条数据");
+                startActivity(new Intent(getContext(), ShangjiaActivity.class));
                 break;
             case 3:
                 MyToast.showShort(getContext(), "点击了第" + position + "条数据");

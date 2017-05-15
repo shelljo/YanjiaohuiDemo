@@ -106,25 +106,24 @@
         <LinearLayout
             android:id="@+id/buss_lin_is"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="#ccedc7"
             android:orientation="vertical"
             android:visibility="gone" >
 
+            <!--<TextView-->
+                <!--android:id="@+id/buss_tv"-->
+                <!--android:gravity="center"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="48dp"-->
+                <!--android:text="悬浮内容"-->
+                <!--/>-->
+
             <zhuoyue.com.yanjiaohuidemo.diyview.DropDownMenu
-                android:id="@+id/buss_tv"
+                android:id="@+id/dropDownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:ddmenuTextSize="13sp"
-                app:ddtextUnselectedColor="@color/drop_down_unselected"
-                app:ddtextSelectedColor="@color/drop_down_selected"
-                app:dddividerColor="@color/gray"
-                app:ddunderlineColor="@color/gray"
-                app:ddmenuSelectedIcon="@drawable/drop_down_selected_icon"
-                app:ddmaskColor="@color/mask_color"
-                app:ddmenuBackgroundColor="@color/white"
-                app:ddmenuUnselectedIcon="@drawable/drop_down_unselected_icon"
-                />
+                android:layout_height="48dp"/>
+
             
             <LinearLayout
                 android:orientation="horizontal"
