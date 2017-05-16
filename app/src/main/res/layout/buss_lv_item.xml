@@ -7,7 +7,6 @@
     
     <ImageView
         android:id="@+id/buss_item_iv"
-        android:background="#f00"
         android:layout_margin="5dp"
         android:src="@drawable/logodemo"
         android:layout_width="100dp"
@@ -15,7 +14,7 @@
 
     <TextView
         android:id="@+id/buss_item_title_tv"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginLeft="10dp"
         android:layout_alignTop="@+id/buss_item_iv"
         android:layout_toRightOf="@+id/buss_item_iv"
@@ -25,14 +24,17 @@
         android:layout_height="wrap_content"/>
 
     <RatingBar
+
+        android:scaleX="1.5"
+        android:scaleY="1.5"
         android:id="@+id/buss_item_ratingbar"
         android:progressTint="@color/colorYellow"
         android:layout_below="@+id/buss_item_title_tv"
         android:layout_marginTop="5dp"
         android:isIndicator="false"
         android:numStars="5"
-        android:rating="2.5"
-        android:layout_marginLeft="10dp"
+        android:rating="1"
+        android:layout_marginLeft="25dp"
         android:stepSize="0.5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,7 +81,6 @@
 
     <LinearLayout
         android:layout_alignBottom="@id/buss_item_iv"
-
         android:layout_marginLeft="10dp"
         android:layout_below="@+id/buss_item_zaninfo"
         android:layout_toRightOf="@+id/buss_item_iv"
@@ -101,7 +102,9 @@
             />
 
         <ImageView
-            android:src="@drawable/icon_map"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:src="@drawable/ic_maphandle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
@@ -112,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="1dp"
+
             android:text="36"/>
     </LinearLayout>
 

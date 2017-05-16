@@ -45,8 +45,10 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
             //首先监测手机号码输入是否正确
                 boolean matchered = CheckPhoneUtil.isMatchered(UrlConfig.MATCH_PHONE, mForget_Phone.getText().toString());
+
                 if(matchered==false){
                 MyToast.showShort(ForgetPasswordActivity.this,"手机号是不是输错(≧▽≦)啦啦啦");
                 }else

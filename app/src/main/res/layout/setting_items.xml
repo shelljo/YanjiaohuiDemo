@@ -15,7 +15,8 @@
         android:layout_height="match_parent"/>
 
     <EditText
-        android:id="@+id/setting_et"
+        android:hint="点击换帮"
+        android:id="@+id/setting_change_et"
         android:textSize="18sp"
         android:gravity="right|center_vertical"
         android:layout_width="0dp"

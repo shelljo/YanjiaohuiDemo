@@ -26,6 +26,7 @@ import android.widget.TextView;
 import zhuoyue.com.yanjiaohuidemo.R;
 import zhuoyue.com.yanjiaohuidemo.activity.BusinessActivity;
 import zhuoyue.com.yanjiaohuidemo.activity.DropDownTestActivity;
+import zhuoyue.com.yanjiaohuidemo.activity.MyAddressActivity;
 import zhuoyue.com.yanjiaohuidemo.activity.PersonalInfoActivity;
 import zhuoyue.com.yanjiaohuidemo.activity.SettingActivity;
 import zhuoyue.com.yanjiaohuidemo.activity.ShangjiaActivity;
@@ -41,8 +42,7 @@ import zhuoyue.com.yanjiaohuidemo.util.NetWorkApi;
 public class MineFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
 
-
-    private LinearLayout mLin_Head_bg;
+    private LinearLayout mLin_Head_bg,mAddress_click;
     private GridView mGridView;
     private GridAdapter mGridAdapter;
     private ImageView mSetting, mMsm, mMine_head_pic;
@@ -102,12 +102,15 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
 
         mMine_head_pic.setOnClickListener(this);
 
+        mAddress_click.setOnClickListener(this);
+
 
         return view;
     }
 
     private void initView(View view) {
 
+        mAddress_click = (LinearLayout) view.findViewById(R.id.address_click);
         mMine_head_pic = (ImageView) view.findViewById(R.id.mine_head_pic);
         mSetting = (ImageView) view.findViewById(R.id.mine_setting);
         mMsm = (ImageView) view.findViewById(R.id.mine_sms);
@@ -177,6 +180,13 @@ public class MineFragment extends Fragment implements AdapterView.OnItemClickLis
             case R.id.mine_head_pic:
 
                 break;
+            //收货地址
+            case R.id.address_click:
+
+                startActivity(new Intent(getContext(), MyAddressActivity.class));
+
+                break;
+
 
         }
     }

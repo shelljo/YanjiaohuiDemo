@@ -71,6 +71,24 @@ public interface INetServer {
     @GET(UrlConfig.HOME_INFO)
     Call<ShangjiaEntity> GetHomeInfo(@Query("city_id") String city_id,@Query("xpoint")String xpoint,@Query("ypoint")String ypoint );
 
+    //手机换帮 ,第一步,发送原手机验证码：
+    @GET(UrlConfig.CHANGE_PHONE_FIRST)
+    Call<SmsCallBackEntity> ChangeNum_First_oldPhone(@Query("mobile") String mobile);
+
+    //第二步：验证原手机是否正确
+    @FormUrlEncoded
+    @POST(UrlConfig.CHANGE_PHONE_SECOND)
+    Call<SmsCallBackEntity> ChangeNum_Second_Check_PhoneNum(@FieldMap Map<String, String> map);
+
+    //第三步：发送新手机验证码
+    @GET(UrlConfig.CHANGE_PHONE_THIRD)
+    Call<SmsCallBackEntity> ChangeNum_Third_NewPhoneNum(@Query("mobile") String mobile);
+
+    //第四步：完成
+    @FormUrlEncoded
+    @POST(UrlConfig.CHANGE_PHONE_FOURTH)
+    Call<SmsCallBackEntity> ChangeSuccesful(@FieldMap Map<String, String> map);
+
 
 
 

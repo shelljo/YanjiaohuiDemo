@@ -3,6 +3,7 @@ package zhuoyue.com.yanjiaohuidemo.activity;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -22,17 +23,20 @@ import zhuoyue.com.yanjiaohuidemo.util.NetWorkApi;
 
 public class ShangjiaActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
 
-
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ShangjialvAdapter mAdapter;
     private ListView shangjia_lv;
     private NetWorkApi mNetWorkApi = new NetWorkApi();
     private List<ShangjiaEntity.SupplierListBean> mList;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shangjia);
+
+        View headView = LayoutInflater.from(ShangjiaActivity.this).inflate(R.layout.buss_banner, null);
+
 
         shangjia_lv = (ListView) findViewById(R.id.shangjia_lv);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.shangjia_refresh);
@@ -67,7 +71,7 @@ public class ShangjiaActivity extends AppCompatActivity implements AdapterView.O
 
     //这个是list_view的数据。
     private void initData() {
-        mNetWorkApi.GetHomeInfo("0", "116.8229", "39.994026",
+        mNetWorkApi.GetHomeInfo("0", "116.788257", "39.972457",
                 new Callback<ShangjiaEntity>() {
 
                     @Override
@@ -100,13 +104,11 @@ public class ShangjiaActivity extends AppCompatActivity implements AdapterView.O
 
     }
 
-
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
 
 
     }
-
     //在这里进行分页
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {

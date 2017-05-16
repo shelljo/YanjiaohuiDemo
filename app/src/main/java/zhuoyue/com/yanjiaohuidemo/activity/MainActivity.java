@@ -19,7 +19,6 @@ import zhuoyue.com.yanjiaohuidemo.fragment.UnknowFragment;
  * 这个是主页面。
  * */
 
-
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
     private RadioGroup mRadioGroup;
     private HomeFragment mHomeFragment;
@@ -39,9 +38,18 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         initView();
 
         mHomeFragment = new HomeFragment();
+        mUnknowFragment = new UnknowFragment();
+        mSmsFragment = new SmsFragment();
+        mMineFragment = new MineFragment();
         mFragmentManager = getSupportFragmentManager();
         mFragmentManager.beginTransaction()
                 .add(R.id.main_fragment, mHomeFragment)
+                .add(R.id.main_fragment, mUnknowFragment)
+                .add(R.id.main_fragment, mMineFragment)
+                .add(R.id.main_fragment, mSmsFragment)
+                .hide(mUnknowFragment)
+                .hide(mSmsFragment)
+                .hide(mMineFragment)
                 .commit();
         mCurrentFragment = mHomeFragment;
         //点击每一个按钮对应一个fragment。

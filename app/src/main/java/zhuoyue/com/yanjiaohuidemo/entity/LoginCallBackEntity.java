@@ -11,6 +11,15 @@ public class LoginCallBackEntity {
 
     private LoginInfoEntity info;
 
+    private String error;
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
 
     public String getBack() {
         return back;

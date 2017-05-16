@@ -11,6 +11,7 @@ public class UrlConfig {
     //图片头文件
     public static final String IMAGE_BASE_URL = "http://47.93.112.70:8081/";
 
+    //BaseUrl
     public static final String BASE_URL = "http://47.93.112.70:8081/index.php/";
 
     //短信验证
@@ -43,6 +44,26 @@ public class UrlConfig {
     //首页的各种信息的url
     public static final String HOME_INFO = "home/index/index_getall";
 
+    //下面是手机换绑的操作
+    //第一步：发送原手机验证码：
+    public static final String CHANGE_PHONE_FIRST="home/user/regsmssend?";
+
+    //第二步：验证原手机是否正确：参数：
+    // mobile = 手机号；
+    // code = 验证码；
+    public static final String CHANGE_PHONE_SECOND = "home/user/user_changemobile";
+
+    // 第三步：发送新手机验证码
+    //新手机号
+    public static final String CHANGE_PHONE_THIRD = "home/user/regsmssend?";
+
+    // step = 1
+    // mobile = 新手机号；
+    // code = 验证码；
+    // oldphone = 原手机号
+    // oldcode = 原验证码
+    //第四步：更换为新手机号：
+    public static final String CHANGE_PHONE_FOURTH = "home/user/user_changemobile";
 
 
 }

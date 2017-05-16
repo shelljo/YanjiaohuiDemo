@@ -10,6 +10,7 @@ import cn.sharesdk.framework.ShareSDK;
  */
 
 public class BaseApplication extends Application {
+    protected static BaseApplication mApplication;
 
     @Override
     public void onCreate() {
@@ -17,5 +18,10 @@ public class BaseApplication extends Application {
         ShareSDK.initSDK(getApplicationContext());
 
     }
+    public static BaseApplication getInstance() {
+        return mApplication;
+    }
+
+
 
 }

@@ -134,8 +134,49 @@ public class NetWorkApi {
 
         mShangjiaEntityCall = mServer.GetHomeInfo(city, xpoint, ypoint);
         mShangjiaEntityCall.enqueue(callback);
+    }
+
+    //  手机换帮第一步发送原手机验证码？
+    public void ChangeNum_First_oldPhone(String mobile,Callback<SmsCallBackEntity>callback){
+
+        mSmsCallBackEntityCall=mServer.ChangeNum_First_oldPhone(mobile);
+        mSmsCallBackEntityCall.enqueue(callback);
 
     }
+
+   //  手机换帮 第二步 验证原手机是不是正确
+    public void ChangeNum_Second_Check_PhoneNum(String old_phone,String code, Callback<SmsCallBackEntity>callback){
+
+        Map<String, String> map = new HashMap<>();
+        map.put("mobile", old_phone);
+        map.put("code", code);
+        mSmsCallBackEntityCall=mServer.ChangeNum_Second_Check_PhoneNum(map);
+        mSmsCallBackEntityCall.enqueue(callback);
+
+    }
+
+    //第三步 发送新手机验证码
+    public void ChangeNum_Third_NewPhoneNum(String phone, Callback<SmsCallBackEntity>callback){
+        mSmsCallBackEntityCall=mServer.ChangeNum_Third_NewPhoneNum(phone);
+        mSmsCallBackEntityCall.enqueue(callback);
+
+    }
+
+    //第四步，更换新手机号
+    public void ChangeSuccesful(String mobile,String code,String oldphone ,String oldcode , Callback<SmsCallBackEntity>callback){
+        Map<String, String> map = new HashMap<>();
+        map.put("step", "1");
+        map.put("mobile", mobile);
+        map.put("code", code);
+        map.put("oldphone", oldphone);
+        map.put("oldcode", oldcode);
+        mSmsCallBackEntityCall = mServer.ChangeSuccesful(map);
+        mSmsCallBackEntityCall.enqueue(callback);
+
+    }
+
+
+
 
 
 

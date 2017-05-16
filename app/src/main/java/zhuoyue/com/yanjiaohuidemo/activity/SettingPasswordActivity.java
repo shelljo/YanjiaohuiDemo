@@ -49,11 +49,14 @@ public class SettingPasswordActivity extends AppCompatActivity implements View.O
     @Override
     public void onClick(View v) {
         if (mSet_password.getTextSize()<6) {
+
             MyToast.showShort(SettingPasswordActivity.this,"密码不能太短啊！");
-            return;
+
         } else {
-            if(!mSet_password.getText().equals(mSet_password_again.getText())){
+
+            if(!mSet_password.getText().toString().equals(mSet_password_again.getText().toString())){
                 MyToast.showShort(SettingPasswordActivity.this,"两次输入的好像不一样呢！");
+                return;
             }
 
         Intent intent = getIntent();
