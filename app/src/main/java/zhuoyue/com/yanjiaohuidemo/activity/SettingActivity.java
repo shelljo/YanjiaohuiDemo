@@ -1,6 +1,8 @@
 package zhuoyue.com.yanjiaohuidemo.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +36,16 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         mSetting_myinfo_ll.setOnClickListener(this);
         mSetting_change_pwd_ll.setOnClickListener(this);
         mChange_et.setOnClickListener(this);
+
+        initVariousData();
+
+    }
+
+    private void initVariousData() {
+
+        SharedPreferences sp = getSharedPreferences("perinfo", Context.MODE_PRIVATE);
+
+        mChange_et.setText(sp.getString("mobile","换绑"));
 
     }
 
@@ -77,6 +89,9 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             //修改密码
             case R.id.setting_change_pwd_ll:
+                Intent intent = new Intent(SettingActivity.this,ForgetPasswordActivity.class);
+                intent.getStringExtra("set_title");
+                startActivity(intent);
 
                 break;
             //点击换帮

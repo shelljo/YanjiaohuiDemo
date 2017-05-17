@@ -27,7 +27,6 @@
         <include layout="@layout/setting_items_conn_us"/>
         <include layout="@layout/setting_items_pingfen"/>
         <include layout="@layout/setting_items_about"/>
-        <include layout="@layout/setting_items"/>
 
 
         <Button

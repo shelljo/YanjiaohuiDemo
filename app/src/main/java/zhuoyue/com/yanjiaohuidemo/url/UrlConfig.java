@@ -24,20 +24,20 @@ public class UrlConfig {
     public static final String FORGET_NUM = "home/user/forget";
 
     //check 验证码
-    public static final String CHECK_NUM  = "home/user/checkcode";
+    public static final String CHECK_NUM = "home/user/checkcode";
 
     //会员登录
     public static final String NUM_LOGIN = "home/user/login";
 
     //验证手机是不是已经注册了
-    public static final String IS_REGISTER ="home/user/number_check";
+    public static final String IS_REGISTER = "home/user/number_check";
 
     //上传头像
     public static final String HEAD_PIC = "home/user/user_setavatar";
 
     //验证手机号码的正则。
     public final static String MATCH_PHONE = "^1[34578]{1}\\d{9}$";
-    
+
     //个人信息接口
     public static final String PERSONAL_INFO = "home/user/user_change";
 
@@ -46,7 +46,7 @@ public class UrlConfig {
 
     //下面是手机换绑的操作
     //第一步：发送原手机验证码：
-    public static final String CHANGE_PHONE_FIRST="home/user/regsmssend?";
+    public static final String CHANGE_PHONE_FIRST = "home/user/regsmssend?";
 
     //第二步：验证原手机是否正确：参数：
     // mobile = 手机号；
@@ -64,6 +64,18 @@ public class UrlConfig {
     // oldcode = 原验证码
     //第四步：更换为新手机号：
     public static final String CHANGE_PHONE_FOURTH = "home/user/user_changemobile";
+
+    //新增收货地址
+    public static final String ADD_USER_ADDRESS = "home/user/user_address_add";
+
+    //获取用户地址
+    public static final String GET_USER_ADDRESS = "home/user/user_getaddress_list";
+
+    //修改用户地址
+    public static final String CHANGE_USER_ADDRESS = "home/user/user_address_save";
+
+    //删除用户地址
+    public static final String DELETE_UER_ADDRESS = "home/user/user_address_del";
 
 
 }

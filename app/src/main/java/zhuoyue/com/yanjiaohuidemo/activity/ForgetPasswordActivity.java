@@ -16,7 +16,6 @@ import zhuoyue.com.yanjiaohuidemo.R;
 import zhuoyue.com.yanjiaohuidemo.entity.SmsCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.url.UrlConfig;
 import zhuoyue.com.yanjiaohuidemo.util.CheckPhoneUtil;
-import zhuoyue.com.yanjiaohuidemo.util.MD5util;
 import zhuoyue.com.yanjiaohuidemo.util.MyCountDownTimer;
 import zhuoyue.com.yanjiaohuidemo.util.MyLog;
 import zhuoyue.com.yanjiaohuidemo.util.MyToast;
@@ -31,6 +30,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     private MyCountDownTimer mMyCountDownTimer;
     private NetWorkApi mNetWorkApi=new NetWorkApi();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +38,12 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
         initView();
 
+
         mMyCountDownTimer = new MyCountDownTimer(6000, 10, mForget_get_phone_num);
 
         //点击获取验证码
         mForget_get_phone_num.setOnClickListener(new View.OnClickListener() {
+
 
             @Override
             public void onClick(View v) {

@@ -18,6 +18,7 @@ import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.RegisterCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.ShangjiaEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.SmsCallBackEntity;
+import zhuoyue.com.yanjiaohuidemo.entity.UserAddressCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.interfacepcg.INetServer;
 import zhuoyue.com.yanjiaohuidemo.url.UrlConfig;
 
@@ -34,6 +35,7 @@ public class NetWorkApi {
     private Call<LoginCallBackEntity>mLoginCallBackEntityCall;
     private Call<HeadBackEntity>mHeadBackEntityCall;
     private Call<LoginInfoEntity>mLoginInfoEntityCall;
+    private Call<UserAddressCallBackEntity>mUserAddressCallBackEntityCall;
 
     //这个是商家列表
     private Call<ShangjiaEntity>mShangjiaEntityCall;
@@ -172,13 +174,65 @@ public class NetWorkApi {
         map.put("oldcode", oldcode);
         mSmsCallBackEntityCall = mServer.ChangeSuccesful(map);
         mSmsCallBackEntityCall.enqueue(callback);
-
     }
 
+    // 获取用户地址
+    // mobile：登录手机
+    // user_pwd：登录密码
+    public void GetUserAddress(String mobile,String pwd, Callback<UserAddressCallBackEntity>callback){
 
+        Map<String, String> map = new HashMap<>();
+        map.put("mobile", mobile);
+        map.put("user_pwd", pwd);
+        mUserAddressCallBackEntityCall = mServer.GetUserAddress(map);
+        mUserAddressCallBackEntityCall.enqueue(callback);
+    }
+    //增加用户地址
+    public void AddUserAddress(String mobile,String user_pwd, String name,String mobile1,String address,String sex,
+                               String xpoint,String ypoint,Callback<SmsCallBackEntity>callback){
 
+        Map<String, String> map = new HashMap<>();
+        map.put("name", name);
+        map.put("mobile", mobile);
+        map.put("user_pwd", user_pwd);
+        map.put("mobile1", mobile1);
+        map.put("address", address);
+        map.put("sex", sex);
+        map.put("xpoint", xpoint);
+        map.put("ypoint", ypoint);
 
+        mSmsCallBackEntityCall = mServer.AddUserAddress(map);
+        mSmsCallBackEntityCall.enqueue(callback);
+    }
+    //修改用户
+    public void ChangeUserAddress(String mobile,String user_pwd, String name,String mobile1,String address,String sex,
+                                  String xpoint,String ypoint,String isdefault, Callback<SmsCallBackEntity>callback){
+        Map<String, String> map = new HashMap<>();
+        map.put("name", name);
+        map.put("mobile", mobile);
+        map.put("user_pwd", user_pwd);
+        map.put("mobile1", mobile1);
+        map.put("address", address);
+        map.put("sex", sex);
+        map.put("xpoint", xpoint);
+        map.put("ypoint", ypoint);
+        map.put("is_default", isdefault);
 
+        mSmsCallBackEntityCall = mServer.ChangeUserAddress(map);
+        mSmsCallBackEntityCall.enqueue(callback);
+
+    }
+    //删除用户地址
+    public void sdj(String mobile,String user_pwd, Callback<SmsCallBackEntity>callback){
+        Map<String, String> map = new HashMap<>();
+
+        map.put("mobile", mobile);
+        map.put("user_pwd", user_pwd);
+
+        mSmsCallBackEntityCall = mServer.DeleteUserAddress(map);
+        mSmsCallBackEntityCall.enqueue(callback);
+
+    }
 
 
 

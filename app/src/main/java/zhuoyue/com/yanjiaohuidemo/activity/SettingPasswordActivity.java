@@ -94,4 +94,11 @@ public class SettingPasswordActivity extends AppCompatActivity implements View.O
         String encrypt1 = MD5util.encrypt(s);
         return encrypt1;
     }
+
+    public void finish_click(View view) {
+
+        finish();
+
+    }
+
 }

@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorLightGray"
     tools:context="zhuoyue.com.yanjiaohuidemo.activity.MyAddressActivity">
 
+    <ListView
+        android:id="@+id/myaddress_lv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
 
+    <RelativeLayout
+        android:id="@+id/myaddress_rl"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
 
+        <TextView
 
+            android:drawableLeft="@drawable/addaddress"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   新增收货地址"
+            android:textSize="12sp"/>
 
+    </RelativeLayout>
 
 
 </LinearLayout>

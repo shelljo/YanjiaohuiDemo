@@ -21,6 +21,7 @@ import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.RegisterCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.ShangjiaEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.SmsCallBackEntity;
+import zhuoyue.com.yanjiaohuidemo.entity.UserAddressCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.url.UrlConfig;
 
 /**
@@ -89,10 +90,25 @@ public interface INetServer {
     @POST(UrlConfig.CHANGE_PHONE_FOURTH)
     Call<SmsCallBackEntity> ChangeSuccesful(@FieldMap Map<String, String> map);
 
+    //获取用户地址,传俩参数
+    @FormUrlEncoded
+    @POST(UrlConfig.GET_USER_ADDRESS)
+    Call<UserAddressCallBackEntity>GetUserAddress(@FieldMap Map<String,String>map);
 
+    //增加用户地址
+    @FormUrlEncoded
+    @POST(UrlConfig.ADD_USER_ADDRESS)
+    Call<SmsCallBackEntity> AddUserAddress(@FieldMap Map<String, String> map);
 
+    //修改用户地址
+    @FormUrlEncoded
+    @POST(UrlConfig.CHANGE_USER_ADDRESS)
+    Call<SmsCallBackEntity> ChangeUserAddress(@FieldMap Map<String, String> map);
 
-
+    //删除用户地址
+    @FormUrlEncoded
+    @POST(UrlConfig.DELETE_UER_ADDRESS)
+    Call<SmsCallBackEntity> DeleteUserAddress(@FieldMap Map<String ,String> map);
 
 
 }
