@@ -1,9 +1,5 @@
 package zhuoyue.com.yanjiaohuidemo.util;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +8,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import zhuoyue.com.yanjiaohuidemo.entity.AddressEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.HeadBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
@@ -35,7 +32,9 @@ public class NetWorkApi {
     private Call<LoginCallBackEntity>mLoginCallBackEntityCall;
     private Call<HeadBackEntity>mHeadBackEntityCall;
     private Call<LoginInfoEntity>mLoginInfoEntityCall;
+    private Call<AddressEntity> mAddressEntityCall;
     private Call<UserAddressCallBackEntity>mUserAddressCallBackEntityCall;
+
 
     //这个是商家列表
     private Call<ShangjiaEntity>mShangjiaEntityCall;
@@ -179,14 +178,17 @@ public class NetWorkApi {
     // 获取用户地址
     // mobile：登录手机
     // user_pwd：登录密码
-    public void GetUserAddress(String mobile,String pwd, Callback<UserAddressCallBackEntity>callback){
+    public void GetUserAddress(String mobile,String pwd, Callback<AddressEntity>callback){
 
         Map<String, String> map = new HashMap<>();
         map.put("mobile", mobile);
         map.put("user_pwd", pwd);
-        mUserAddressCallBackEntityCall = mServer.GetUserAddress(map);
-        mUserAddressCallBackEntityCall.enqueue(callback);
+
+        mAddressEntityCall= mServer.GetUserAddress(map);
+        mAddressEntityCall.enqueue(callback);
+
     }
+
     //增加用户地址
     public void AddUserAddress(String mobile,String user_pwd, String name,String mobile1,String address,String sex,
                                String xpoint,String ypoint,Callback<SmsCallBackEntity>callback){
@@ -204,10 +206,14 @@ public class NetWorkApi {
         mSmsCallBackEntityCall = mServer.AddUserAddress(map);
         mSmsCallBackEntityCall.enqueue(callback);
     }
-    //修改用户
-    public void ChangeUserAddress(String mobile,String user_pwd, String name,String mobile1,String address,String sex,
-                                  String xpoint,String ypoint,String isdefault, Callback<SmsCallBackEntity>callback){
+
+
+    //修改用户地址
+    public void ChangeUserAddress(String id, String mobile,String user_pwd, String name,String mobile1,String address,String sex,
+                                  String xpoint,String ypoint, Callback<SmsCallBackEntity>callback){
         Map<String, String> map = new HashMap<>();
+
+        map.put("aid", id);
         map.put("name", name);
         map.put("mobile", mobile);
         map.put("user_pwd", user_pwd);
@@ -216,24 +222,25 @@ public class NetWorkApi {
         map.put("sex", sex);
         map.put("xpoint", xpoint);
         map.put("ypoint", ypoint);
-        map.put("is_default", isdefault);
+//        map.put("is_default", isdefault);
 
         mSmsCallBackEntityCall = mServer.ChangeUserAddress(map);
         mSmsCallBackEntityCall.enqueue(callback);
 
     }
+
     //删除用户地址
-    public void sdj(String mobile,String user_pwd, Callback<SmsCallBackEntity>callback){
+    public void DeleteUserAddress(String mobile,String user_pwd,String id, Callback<SmsCallBackEntity>callback){
         Map<String, String> map = new HashMap<>();
 
+        map.put("id", id);
         map.put("mobile", mobile);
         map.put("user_pwd", user_pwd);
 
         mSmsCallBackEntityCall = mServer.DeleteUserAddress(map);
         mSmsCallBackEntityCall.enqueue(callback);
 
+
     }
-
-
 
 }

@@ -147,6 +147,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/mine_collection"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="1dp"
@@ -159,7 +160,7 @@
                 android:layout_marginLeft="10dp"
                 android:drawableLeft="@android:drawable/ic_menu_compass"
                 android:gravity="center_vertical"
-                android:text="  我的购物"
+                android:text="  我的收藏"
                 />
         </LinearLayout>
         <LinearLayout

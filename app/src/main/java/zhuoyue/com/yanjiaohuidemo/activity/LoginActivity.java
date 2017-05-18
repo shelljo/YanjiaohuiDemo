@@ -190,6 +190,7 @@ public class LoginActivity extends BaseActivity {
                                                 //其它程序不能访问,保存用户名还有密码.
                                                 SharedPreferences preferences = getSharedPreferences("perinfo", Context.MODE_PRIVATE);
                                                 SharedPreferences.Editor edit = preferences.edit();
+                                                edit.putString("id", info.getId());
                                                 edit.putString("mobile", mLogin_Phone.getText().toString());
                                                 edit.putString("user_pwd", Md5Handle(mLogin_Password.getText().toString()));
                                                 edit.putString("nickname",info.getUser_nick());

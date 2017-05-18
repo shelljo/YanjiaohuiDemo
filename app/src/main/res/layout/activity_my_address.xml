@@ -8,11 +8,52 @@
     android:background="@color/colorLightGray"
     tools:context="zhuoyue.com.yanjiaohuidemo.activity.MyAddressActivity">
 
+    <LinearLayout
+        android:background="@color/colorWhite"
+        android:layout_marginTop="10dp"
+        android:layout_gravity=""
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <ImageView
+            android:onClick="finish_click"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/jiantou"
+            />
+
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="我的收货地址"
+            />
+
+          <TextView
+              android:onClick="manager_click"
+              android:id="@+id/my_manager"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="管理"
+              android:layout_gravity="center"
+              android:layout_marginRight="20dp"
+              />
+
+    </LinearLayout>
+
     <ListView
+
+        android:dividerHeight="2dp"
         android:id="@+id/myaddress_lv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+
         />
 
     <RelativeLayout

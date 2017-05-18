@@ -30,7 +30,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="30dp"
             android:layout_weight="1"
-            android:text="新增收货地址"
+            android:text="编辑收货地址"
             />
 
         <Button
@@ -40,14 +40,14 @@
             android:layout_gravity="center"
             android:layout_marginRight="10dp"
             android:background="@color/colorRed"
-            android:onClick="newaddress_save"
+            android:onClick="editaddress_save"
             android:text="保存"
             android:textColor="@color/colorWhite"/>
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="55dp"
         android:layout_marginLeft="20dp"
         android:gravity="center_vertical"
         android:text="联系人"
@@ -55,7 +55,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="55dp"
         android:background="@color/colorWhite"
         android:orientation="horizontal">
 
@@ -68,7 +68,7 @@
             />
 
         <EditText
-            android:id="@+id/address_name"
+            android:id="@+id/edit_address_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
@@ -77,11 +77,10 @@
             android:hint="请填写收货人的姓名"
             android:textSize="15sp"/>
 
-
     </LinearLayout>
 
     <RadioGroup
-        android:id="@+id/newaddress_radiogroup"
+        android:id="@+id/edit_address_radiogroup"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="1dp"
@@ -94,11 +93,11 @@
             android:layout_weight="1"/>
 
         <RadioButton
-            android:checked="true"
-            android:id="@+id/newaddress_boy"
+            android:id="@+id/edit_address_boy"
             android:textSize="30dp"
             android:scaleX="0.5"
             android:scaleY="0.5"
+            android:checked="true"
             android:drawableLeft="@drawable/sexselected"
             android:button="@null"
             android:layout_width="wrap_content"
@@ -109,7 +108,7 @@
             />
 
         <RadioButton
-            android:id="@+id/newaddress_girl"
+            android:id="@+id/edit_address_girl"
             android:textSize="30dp"
             android:scaleX="0.5"
             android:scaleY="0.5"
@@ -133,7 +132,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="55dp"
         android:layout_marginTop="1dp"
         android:background="@color/colorWhite"
         android:orientation="horizontal">
@@ -147,7 +146,7 @@
             />
 
         <EditText
-            android:id="@+id/address_phone_num"
+            android:id="@+id/edit_address_phone_num"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
@@ -168,7 +167,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="55dp"
         android:layout_marginTop="1dp"
         android:background="@color/colorWhite"
         android:orientation="horizontal">
@@ -214,14 +213,13 @@
                 android:background="@color/colorRed"
                 android:src="@drawable/youjiantou"/>
 
-
         </LinearLayout>
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="55dp"
         android:layout_marginTop="1dp"
         android:background="@color/colorWhite"
         android:orientation="horizontal">
@@ -236,7 +234,7 @@
             />
 
         <EditText
-            android:id="@+id/address_room"
+            android:id="@+id/edit_address_room"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

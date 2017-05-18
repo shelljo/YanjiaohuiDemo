@@ -6,9 +6,8 @@ package zhuoyue.com.yanjiaohuidemo.entity;
  */
 
 public class UserAddressCallBackEntity {
-
-
-    private int id;
+    
+    private String id;
     private String name;
     private String mobile;
     private String Province;
@@ -24,11 +23,12 @@ public class UserAddressCallBackEntity {
     private String time;
     private String beizhu;
 
-    public int getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

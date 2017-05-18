@@ -15,6 +15,7 @@ import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 import retrofit2.http.Url;
+import zhuoyue.com.yanjiaohuidemo.entity.AddressEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.HeadBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
@@ -93,7 +94,11 @@ public interface INetServer {
     //获取用户地址,传俩参数
     @FormUrlEncoded
     @POST(UrlConfig.GET_USER_ADDRESS)
-    Call<UserAddressCallBackEntity>GetUserAddress(@FieldMap Map<String,String>map);
+    Call<AddressEntity> GetUserAddress(@FieldMap Map<String,String>map);
+
+
+
+
 
     //增加用户地址
     @FormUrlEncoded

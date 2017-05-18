@@ -92,6 +92,10 @@
         </activity>
         <activity android:name=".activity.NewAddressActivity">
         </activity>
+        <activity android:name=".activity.EditAddressActivity">
+        </activity>
+        <activity android:name=".activity.MyCollectionActivity">
+        </activity>
     </application>
 
 </manifest>
