@@ -77,5 +77,26 @@ public class UrlConfig {
     //删除用户地址
     public static final String DELETE_UER_ADDRESS = "home/user/user_address_del";
 
+    //用户收藏列表：
+//    提交参数：
+//    mobile：登录手机
+//    user_pwd：登录密码
+    public static final String USER_COLLECTION = "home/user/user_collect_list";
+
+    //删除用户收藏：
+//    提交参数：
+//    mobile：登录手机
+//    user_pwd：登录密码
+//    id：收藏编号
+    public static final String DELETE_USER_COLLECTION = "home/user/user_collect_del";
+
+    //添加收藏
+//    提交参数：
+//    mobile：登录手机
+//    user_pwd：登录密码
+//    id：收藏编号
+//    model：模型类型 “0为商家，1为活动，还有其他的 到时候修改此数值即可”
+    public static final String ADD_USER_COLLECTION = "home/user/user_collect_add";
+
 
 }

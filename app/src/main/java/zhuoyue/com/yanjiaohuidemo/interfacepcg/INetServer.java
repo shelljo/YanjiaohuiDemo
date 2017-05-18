@@ -16,6 +16,7 @@ import retrofit2.http.Query;
 
 import retrofit2.http.Url;
 import zhuoyue.com.yanjiaohuidemo.entity.AddressEntity;
+import zhuoyue.com.yanjiaohuidemo.entity.CollecationCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.HeadBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
@@ -97,9 +98,6 @@ public interface INetServer {
     Call<AddressEntity> GetUserAddress(@FieldMap Map<String,String>map);
 
 
-
-
-
     //增加用户地址
     @FormUrlEncoded
     @POST(UrlConfig.ADD_USER_ADDRESS)
@@ -114,6 +112,42 @@ public interface INetServer {
     @FormUrlEncoded
     @POST(UrlConfig.DELETE_UER_ADDRESS)
     Call<SmsCallBackEntity> DeleteUserAddress(@FieldMap Map<String ,String> map);
+
+    //获取用户收藏
+    @FormUrlEncoded
+    @POST(UrlConfig.USER_COLLECTION)
+    Call<CollecationCallBackEntity> GetUserCollection(@FieldMap Map<String, String> map);
+
+    //用户收藏列表：
+//    提交参数：
+//    mobile：登录手机
+//    user_pwd：登录密码
+ //   public static final String USER_COLLECTION = "home/user/user_collect_list";
+
+    //删除用户收藏
+    @FormUrlEncoded
+    @POST(UrlConfig.DELETE_USER_COLLECTION)
+    Call<SmsCallBackEntity> DeleteUserCollection(@FieldMap Map<String, String> map);
+
+    //删除用户收藏：
+//    提交参数：
+//    mobile：登录手机
+//    user_pwd：登录密码
+//    id：收藏编号
+  //  public static final String DELETE_USER_COLLECTION = "home/user/user_collect_del";
+
+    //添加用户收藏
+    @FormUrlEncoded
+    @POST(UrlConfig.ADD_USER_COLLECTION)
+    Call<SmsCallBackEntity> AddUserCollection(@FieldMap Map<String, String> map);
+
+    //添加收藏
+//    提交参数：
+//    mobile：登录手机
+//    user_pwd：登录密码
+//    id：收藏编号
+//    model：模型类型 “0为商家，1为活动，还有其他的 到时候修改此数值即可”
+//  public static final String ADD_USER_COLLECTION = "home/user/user_collect_add";
 
 
 }

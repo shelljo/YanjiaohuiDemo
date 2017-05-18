@@ -9,6 +9,7 @@ import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import zhuoyue.com.yanjiaohuidemo.entity.AddressEntity;
+import zhuoyue.com.yanjiaohuidemo.entity.CollecationCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.HeadBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginCallBackEntity;
 import zhuoyue.com.yanjiaohuidemo.entity.LoginInfoEntity;
@@ -27,71 +28,76 @@ import zhuoyue.com.yanjiaohuidemo.url.UrlConfig;
 public class NetWorkApi {
     private Retrofit mRetrofit;
     private INetServer mServer;
-    private Call<RegisterCallBackEntity>mRegisterCallBackEntityCall;
-    private Call<SmsCallBackEntity>mSmsCallBackEntityCall;
-    private Call<LoginCallBackEntity>mLoginCallBackEntityCall;
-    private Call<HeadBackEntity>mHeadBackEntityCall;
-    private Call<LoginInfoEntity>mLoginInfoEntityCall;
+    private Call<RegisterCallBackEntity> mRegisterCallBackEntityCall;
+    private Call<SmsCallBackEntity> mSmsCallBackEntityCall;
+    private Call<LoginCallBackEntity> mLoginCallBackEntityCall;
+    private Call<HeadBackEntity> mHeadBackEntityCall;
+    private Call<LoginInfoEntity> mLoginInfoEntityCall;
     private Call<AddressEntity> mAddressEntityCall;
-    private Call<UserAddressCallBackEntity>mUserAddressCallBackEntityCall;
+    private Call<UserAddressCallBackEntity> mUserAddressCallBackEntityCall;
+    private Call<CollecationCallBackEntity> mCollecationCallBackEntityCall;
 
 
     //这个是商家列表
-    private Call<ShangjiaEntity>mShangjiaEntityCall;
+    private Call<ShangjiaEntity> mShangjiaEntityCall;
 
 
     public NetWorkApi() {
-        mRetrofit=new Retrofit.Builder()
+        mRetrofit = new Retrofit.Builder()
                 .baseUrl(UrlConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         mServer = mRetrofit.create(INetServer.class);
     }
+
     //提交注册信息，包括电话，验证码，密码,还有忘记密码都是这个。
-    public void PostRegisterData(String mobile, String code, String user_pwd,Callback<RegisterCallBackEntity>callback){
+    public void PostRegisterData(String mobile, String code, String user_pwd, Callback<RegisterCallBackEntity> callback) {
         Map<String, String> map = new HashMap<>();
         map.put("mobile", mobile);
         map.put("code", code);
         map.put("user_pwd", user_pwd);
 
-        mRegisterCallBackEntityCall=mServer.PostRegistData(map);
+        mRegisterCallBackEntityCall = mServer.PostRegistData(map);
         mRegisterCallBackEntityCall.enqueue(callback);
     }
+
     //提交注册信息，包括电话，验证码，密码,还有忘记密码都是这个。
-    public void ForgetPassword(String mobile, String code, String user_pwd,Callback<RegisterCallBackEntity>callback){
+    public void ForgetPassword(String mobile, String code, String user_pwd, Callback<RegisterCallBackEntity> callback) {
         Map<String, String> map = new HashMap<>();
         map.put("mobile", mobile);
         map.put("code", code);
         map.put("user_pwd", user_pwd);
 
-        mRegisterCallBackEntityCall=mServer.ForgetPassword(map);
+        mRegisterCallBackEntityCall = mServer.ForgetPassword(map);
         mRegisterCallBackEntityCall.enqueue(callback);
     }
 
     //获取短信验证码
-    public void GetSmsNum(String phone,Callback<SmsCallBackEntity>callback){
+    public void GetSmsNum(String phone, Callback<SmsCallBackEntity> callback) {
         mSmsCallBackEntityCall = mServer.GetSmsNum(phone);
         mSmsCallBackEntityCall.enqueue(callback);
     }
 
-    public void CheckNum(String mobile,String code,Callback<SmsCallBackEntity>callback){
+    public void CheckNum(String mobile, String code, Callback<SmsCallBackEntity> callback) {
         Map<String, String> map = new HashMap<>();
         map.put("mobile", mobile);
         map.put("code", code);
         mSmsCallBackEntityCall = mServer.CheckNum(map);
         mSmsCallBackEntityCall.enqueue(callback);
     }
-    public void PostLoginData(String mobile,String user_pwd,Callback<LoginCallBackEntity>callback){
+
+    public void PostLoginData(String mobile, String user_pwd, Callback<LoginCallBackEntity> callback) {
 
         Map<String, String> map = new HashMap<>();
         map.put("name", mobile);
-        map.put("user_pwd",user_pwd);
-        mLoginCallBackEntityCall=mServer.LoginCallBack(map);
+        map.put("user_pwd", user_pwd);
+        mLoginCallBackEntityCall = mServer.LoginCallBack(map);
         mLoginCallBackEntityCall.enqueue(callback);
 
     }
+
     //监测是否注册
-    public void  CheckRegister(String phone,Callback<SmsCallBackEntity>callback){
+    public void CheckRegister(String phone, Callback<SmsCallBackEntity> callback) {
 
         mSmsCallBackEntityCall = mServer.ChechRegister(phone);
         mSmsCallBackEntityCall.enqueue(callback);
@@ -100,21 +106,22 @@ public class NetWorkApi {
 
     //上传头像
 
-    public void HeadPic(String phone, String pwd, MultipartBody.Part file, Callback<HeadBackEntity>callback){
+    public void HeadPic(String phone, String pwd, MultipartBody.Part file, Callback<HeadBackEntity> callback) {
         Map<String, String> map = new HashMap<>();
         map.put("mobile", phone);
         map.put("user_pwd", pwd);
 
-        mHeadBackEntityCall = mServer.HeadPic(map,file);
+        mHeadBackEntityCall = mServer.HeadPic(map, file);
         mHeadBackEntityCall.enqueue(callback);
 
     }
+
     //上传个人信息
-    public void PostPersonalInfo(String user_nick,String sex,
-                                 String byear,String bmonth,String bday,
-                                 String province_id,String city_id,
-                                 String mobile,String user_pwd,
-                                 Callback<LoginInfoEntity>callback){
+    public void PostPersonalInfo(String user_nick, String sex,
+                                 String byear, String bmonth, String bday,
+                                 String province_id, String city_id,
+                                 String mobile, String user_pwd,
+                                 Callback<LoginInfoEntity> callback) {
         Map<String, String> map = new HashMap<>();
 
         map.put("user_nick", user_nick);
@@ -127,44 +134,44 @@ public class NetWorkApi {
         map.put("mobile", mobile);
         map.put("user_pwd", user_pwd);
 
-        mLoginInfoEntityCall=mServer.PostPersonalInfo(map);
+        mLoginInfoEntityCall = mServer.PostPersonalInfo(map);
         mLoginInfoEntityCall.enqueue(callback);
     }
 
-    public void GetHomeInfo(String city,String xpoint,String ypoint,Callback<ShangjiaEntity>callback){
+    public void GetHomeInfo(String city, String xpoint, String ypoint, Callback<ShangjiaEntity> callback) {
 
         mShangjiaEntityCall = mServer.GetHomeInfo(city, xpoint, ypoint);
         mShangjiaEntityCall.enqueue(callback);
     }
 
     //  手机换帮第一步发送原手机验证码？
-    public void ChangeNum_First_oldPhone(String mobile,Callback<SmsCallBackEntity>callback){
+    public void ChangeNum_First_oldPhone(String mobile, Callback<SmsCallBackEntity> callback) {
 
-        mSmsCallBackEntityCall=mServer.ChangeNum_First_oldPhone(mobile);
+        mSmsCallBackEntityCall = mServer.ChangeNum_First_oldPhone(mobile);
         mSmsCallBackEntityCall.enqueue(callback);
 
     }
 
-   //  手机换帮 第二步 验证原手机是不是正确
-    public void ChangeNum_Second_Check_PhoneNum(String old_phone,String code, Callback<SmsCallBackEntity>callback){
+    //  手机换帮 第二步 验证原手机是不是正确
+    public void ChangeNum_Second_Check_PhoneNum(String old_phone, String code, Callback<SmsCallBackEntity> callback) {
 
         Map<String, String> map = new HashMap<>();
         map.put("mobile", old_phone);
         map.put("code", code);
-        mSmsCallBackEntityCall=mServer.ChangeNum_Second_Check_PhoneNum(map);
+        mSmsCallBackEntityCall = mServer.ChangeNum_Second_Check_PhoneNum(map);
         mSmsCallBackEntityCall.enqueue(callback);
 
     }
 
     //第三步 发送新手机验证码
-    public void ChangeNum_Third_NewPhoneNum(String phone, Callback<SmsCallBackEntity>callback){
-        mSmsCallBackEntityCall=mServer.ChangeNum_Third_NewPhoneNum(phone);
+    public void ChangeNum_Third_NewPhoneNum(String phone, Callback<SmsCallBackEntity> callback) {
+        mSmsCallBackEntityCall = mServer.ChangeNum_Third_NewPhoneNum(phone);
         mSmsCallBackEntityCall.enqueue(callback);
 
     }
 
     //第四步，更换新手机号
-    public void ChangeSuccesful(String mobile,String code,String oldphone ,String oldcode , Callback<SmsCallBackEntity>callback){
+    public void ChangeSuccesful(String mobile, String code, String oldphone, String oldcode, Callback<SmsCallBackEntity> callback) {
         Map<String, String> map = new HashMap<>();
         map.put("step", "1");
         map.put("mobile", mobile);
@@ -178,20 +185,20 @@ public class NetWorkApi {
     // 获取用户地址
     // mobile：登录手机
     // user_pwd：登录密码
-    public void GetUserAddress(String mobile,String pwd, Callback<AddressEntity>callback){
+    public void GetUserAddress(String mobile, String pwd, Callback<AddressEntity> callback) {
 
         Map<String, String> map = new HashMap<>();
         map.put("mobile", mobile);
         map.put("user_pwd", pwd);
 
-        mAddressEntityCall= mServer.GetUserAddress(map);
+        mAddressEntityCall = mServer.GetUserAddress(map);
         mAddressEntityCall.enqueue(callback);
 
     }
 
     //增加用户地址
-    public void AddUserAddress(String mobile,String user_pwd, String name,String mobile1,String address,String sex,
-                               String xpoint,String ypoint,Callback<SmsCallBackEntity>callback){
+    public void AddUserAddress(String mobile, String user_pwd, String name, String mobile1, String address, String sex,
+                               String xpoint, String ypoint, Callback<SmsCallBackEntity> callback) {
 
         Map<String, String> map = new HashMap<>();
         map.put("name", name);
@@ -209,8 +216,8 @@ public class NetWorkApi {
 
 
     //修改用户地址
-    public void ChangeUserAddress(String id, String mobile,String user_pwd, String name,String mobile1,String address,String sex,
-                                  String xpoint,String ypoint, Callback<SmsCallBackEntity>callback){
+    public void ChangeUserAddress(String id, String mobile, String user_pwd, String name, String mobile1, String address, String sex,
+                                  String xpoint, String ypoint, Callback<SmsCallBackEntity> callback) {
         Map<String, String> map = new HashMap<>();
 
         map.put("aid", id);
@@ -230,7 +237,7 @@ public class NetWorkApi {
     }
 
     //删除用户地址
-    public void DeleteUserAddress(String mobile,String user_pwd,String id, Callback<SmsCallBackEntity>callback){
+    public void DeleteUserAddress(String mobile, String user_pwd, String id, Callback<SmsCallBackEntity> callback) {
         Map<String, String> map = new HashMap<>();
 
         map.put("id", id);
@@ -239,8 +246,44 @@ public class NetWorkApi {
 
         mSmsCallBackEntityCall = mServer.DeleteUserAddress(map);
         mSmsCallBackEntityCall.enqueue(callback);
+    }
 
+    //获取用户收藏
+    public void GetUserCollection( String mobile,String pwd, Callback<CollecationCallBackEntity>callback){
+        Map<String, String> map = new HashMap<>();
+        map.put("mobile", mobile);
+        map.put("user_pwd", pwd);
+        mCollecationCallBackEntityCall=mServer.GetUserCollection(map);
+        mCollecationCallBackEntityCall.enqueue(callback);
 
     }
+
+
+    //删除用户收藏
+    public void DeleteUserCollection(String mobile,String pwd,String id,Callback<SmsCallBackEntity>callback ){
+
+        Map<String, String> map = new HashMap<>();
+        map.put("mobile", mobile);
+        map.put("user_pwd", pwd);
+        map.put("id", id);
+        mSmsCallBackEntityCall=mServer.DeleteUserCollection(map);
+        mSmsCallBackEntityCall.enqueue(callback);
+
+    }
+
+    //添加用户收藏
+    //model：模型类型 “0为商家，1为活动，还有其他的 到时候修改此数值即可”
+    public void AddUserCollection(String mobile,String pwd,String id,String model, Callback<SmsCallBackEntity>callback ){
+
+        Map<String, String> map = new HashMap<>();
+        map.put("mobile", mobile);
+        map.put("user_pwd", pwd);
+        map.put("id", id);
+        map.put("model", model);
+        mSmsCallBackEntityCall=mServer.AddUserCollection(map);
+        mSmsCallBackEntityCall.enqueue(callback);
+
+    }
+
 
 }
